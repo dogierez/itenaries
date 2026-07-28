@@ -3,42 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europe Itineraries Planner</title>
+    <title>Avrupa Rotaları</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header & Navigation -->
-        <header class="glass-panel">
-            <h1>Itinerary Planner</h1>
-            
-            <div class="controls">
-                <div id="language-selector">
-                    <button class="lang-btn active" onclick="appEngine.changeLanguage('EN')">EN</button>
-                    <button class="lang-btn" onclick="appEngine.changeLanguage('TR')">TR</button>
-                    <button class="lang-btn" onclick="appEngine.changeLanguage('DE')">DE</button>
-                    <button class="lang-btn" onclick="appEngine.changeLanguage('RU')">RU</button>
-                </div>
+    <div id="preload-bg"></div>
+
+    <header>
+        <h1 id="app-title" class="neon-blue">Avrupa Rotaları</h1>
+        <div id="language-selector">
+            <button onclick="appEngine.changeLanguage('TR')" class="lang-btn active" id="btn-lang-tr">🇹🇷 TR</button>
+            <button onclick="appEngine.changeLanguage('EN')" class="lang-btn" id="btn-lang-en">🇬🇧 EN</button>
+            <button onclick="appEngine.changeLanguage('DE')" class="lang-btn" id="btn-lang-de">🇩🇪 DE</button>
+            <button onclick="appEngine.changeLanguage('RU')" class="lang-btn" id="btn-lang-ru">🇷🇺 RU</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Level 0: Choose the Region -->
+        <section id="region-screen">
+            <h2 id="region-title">Rotanızı Seçin</h2>
+            <div class="menu-options">
+                <button class="bg-btn-greek" id="btn-route-greek" onclick="appEngine.selectRegion('greek')">🇬🇷 Yunan Adaları</button>
+                <button class="bg-btn-germany" id="btn-route-germany" onclick="appEngine.selectRegion('germany-inside-out')">🇩🇪 Almanya İçten Dışa</button>
+                <button class="bg-btn-constance" id="btn-route-constance" onclick="appEngine.selectRegion('lake-constance')">🇨🇭 Konstanz Gölü</button>
+                <button class="bg-btn-ce" id="btn-route-central-europe" onclick="appEngine.selectRegion('central-europe')">🏰 Orta Avrupa</button>
+                <button class="bg-btn-wne" id="btn-route-west-north-europe" onclick="appEngine.selectRegion('west-north-europe')">🇪🇺 Batı Kuzey Avrupa</button>
+                <button class="bg-btn-central-balkans" id="btn-route-central-balkans" onclick="appEngine.selectRegion('central-balkans')">⛰️ Orta Balkanlar</button>
+                <button class="bg-btn-balkans" id="btn-route-balkans" onclick="appEngine.selectRegion('balkans')">🌄 Doğu Balkanlar</button>
+                <button class="bg-btn-adriatic" id="btn-route-adriatic" onclick="appEngine.selectRegion('adriatic')">🌊 Güney Adriyatik</button>
             </div>
+        </section>
 
-            <nav id="region-buttons">
-                <button class="route-btn" onclick="appEngine.loadRoute('germany-inside-out', 'germany')">Germany Inside Out</button>
-                <button class="route-btn" onclick="appEngine.loadRoute('greek-islands', 'greek')">Greek Islands</button>
-                <button class="route-btn" onclick="appEngine.loadRoute('lake-constance', 'constance')">Lake Constance</button>
-                <button class="route-btn" onclick="appEngine.loadRoute('balkans', 'balkans')">Balkans</button>
-            </nav>
-        </header>
-
-        <!-- Dynamic Content Area -->
-        <main id="app-content" class="glass-panel">
-            <div class="welcome-message">
-                <h2>Welcome to your Planner</h2>
-                <p>Select a route from the menu above. The data is securely stored, ensuring that there is nowhere a heavy file can crash your browser.</p>
+        <!-- Level 1: Choose the Island (Greek Only) -->
+        <section id="island-screen" class="hidden">
+            <button onclick="appEngine.goBack('region-screen')" class="back-btn-top" id="btn-back-region">Rotalara Dön</button>
+            <h2 id="island-title" style="margin-right: 90px; text-align: left;">Adanızı Seçin</h2>
+            <div class="island-options">
+                <button id="btn-chios" onclick="appEngine.selectIsland('chios')">🇬🇷 Sakız</button>
+                <button id="btn-kos" onclick="appEngine.selectIsland('kos')">🇬🇷 Kos</button>
+                <button id="btn-lesbos" onclick="appEngine.selectIsland('lesbos')">🇬🇷 Midilli</button>
+                <button id="btn-meis" onclick="appEngine.selectIsland('meis')">🇬🇷 Meis</button>
+                <button id="btn-rhodes" onclick="appEngine.selectIsland('rhodes')">🇬🇷 Rodos</button>
+                <button id="btn-samos" onclick="appEngine.selectIsland('samos')">🇬🇷 Sisam</button>
             </div>
-        </main>
-    </div>
+        </section>
 
-    <!-- The Core Engine -->
+        <!-- Level 2: Choose Base/Starting Location Map Screen -->
+        <section id="setup-screen" class="hidden">
+            <button onclick="appEngine.goBackFromSetup()" class="back-btn-top" id="btn-back-setup">Geri Dön</button>
+            <h2 id="setup-title" style="margin-right: 90px; text-align: left;">Başlangıç Seçin</h2>
+            <div class="map-container" id="base-options-container">
+                <!-- Map and Buttons dynamically injected here -->
+            </div>
+        </section>
+
+        <!-- Level 3: The Itinerary Cards -->
+        <section id="itinerary-container" class="hidden">
+            <div style="position: relative; margin-bottom: 40px; height: 30px;">
+                <button onclick="appEngine.goBack('setup-screen')" class="back-btn-top" id="btn-back-base">Haritaya Dön</button>
+            </div>
+            <div id="days-wrapper"></div>
+        </section>
+    </main>
+
+    <!-- Core Dynamic Umbrella Engine -->
     <script src="js/app.js"></script>
 </body>
 </html>
