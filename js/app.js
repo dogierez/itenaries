@@ -104,7 +104,7 @@ const i18n = {
             'germany-inside-out': 'Германия изнутри', 'lake-constance': 'Боденское озеро', 'central-balkans': 'Центральные Балканы', 
             'balkans': 'Восточные Балканы', 'adriatic': 'Южная Адриатика' 
         },
-        cities: { berlin: 'Берлин', hamburg: 'Гамбург', bremen: 'Бремен', cologne: 'Кёльн', frankfurt: 'Франкфурт', stuttgart: 'Штутгарт', munich: 'Мюнхен', nuremberg: 'Нюрнберг', leipzig: 'Лейпциг' }
+        cities: { berlin: 'Берлин', hamburg: 'Гамбург', bremen: 'Бремен', cologne: 'Кёльн', frankfurt: 'Франкфурт', stuttgart: 'Штутгарт', munich: 'Мюнхен', nuremberg: 'Нюрнберг', лейпциг: 'Лейпциг' }
     }
 };
 
@@ -133,8 +133,10 @@ function renderAlphabeticalMenu() {
     let html = '';
     sortedKeys.forEach(key => {
         let text = langButtons[key];
-        let className = regionClasses[key] || 'bg-btn-greek';
-        html += `<button class="${className}" onclick="appEngine.selectRegion('${key}')">${text}</button>`;
+        let colorClass = regionClasses[key] || 'bg-btn-greek';
+        
+        // Added standard 'menu-btn' base class to ensure it picks up width and padding from style.css
+        html += `<button class="menu-btn ${colorClass}" onclick="appEngine.selectRegion('${key}')">${text}</button>`;
     });
 
     container.innerHTML = html;
