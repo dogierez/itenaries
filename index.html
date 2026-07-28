@@ -20,32 +20,11 @@
     </header>
 
     <main>
-        <!-- Level 0: Choose the Region -->
+        <!-- Level 0: Choose the Region (Alphabetically Sorted) -->
         <section id="region-screen">
             <h2 id="region-title">Rotanızı Seçin</h2>
-            <div class="menu-options">
-                <button class="bg-btn-greek" id="btn-route-greek" onclick="appEngine.selectRegion('greek')">🇬🇷 Yunan Adaları</button>
-                <button class="bg-btn-germany" id="btn-route-germany" onclick="appEngine.selectRegion('germany-inside-out')">🇩🇪 Almanya İçten Dışa</button>
-                <button class="bg-btn-constance" id="btn-route-constance" onclick="appEngine.selectRegion('lake-constance')">🇨🇭 Konstanz Gölü</button>
-                <button class="bg-btn-ce" id="btn-route-central-europe" onclick="appEngine.selectRegion('central-europe')">🏰 Orta Avrupa</button>
-                <button class="bg-btn-wne" id="btn-route-west-north-europe" onclick="appEngine.selectRegion('west-north-europe')">🇪🇺 Batı Kuzey Avrupa</button>
-                <button class="bg-btn-central-balkans" id="btn-route-central-balkans" onclick="appEngine.selectRegion('central-balkans')">⛰️ Orta Balkanlar</button>
-                <button class="bg-btn-balkans" id="btn-route-balkans" onclick="appEngine.selectRegion('balkans')">🌄 Doğu Balkanlar</button>
-                <button class="bg-btn-adriatic" id="btn-route-adriatic" onclick="appEngine.selectRegion('adriatic')">🌊 Güney Adriyatik</button>
-            </div>
-        </section>
-
-        <!-- Level 1: Choose the Island (Greek Only) -->
-        <section id="island-screen" class="hidden">
-            <button onclick="appEngine.goBack('region-screen')" class="back-btn-top" id="btn-back-region">Rotalara Dön</button>
-            <h2 id="island-title" style="margin-right: 90px; text-align: left;">Adanızı Seçin</h2>
-            <div class="island-options">
-                <button id="btn-chios" onclick="appEngine.selectIsland('chios')">🇬🇷 Sakız</button>
-                <button id="btn-kos" onclick="appEngine.selectIsland('kos')">🇬🇷 Kos</button>
-                <button id="btn-lesbos" onclick="appEngine.selectIsland('lesbos')">🇬🇷 Midilli</button>
-                <button id="btn-meis" onclick="appEngine.selectIsland('meis')">🇬🇷 Meis</button>
-                <button id="btn-rhodes" onclick="appEngine.selectIsland('rhodes')">🇬🇷 Rodos</button>
-                <button id="btn-samos" onclick="appEngine.selectIsland('samos')">🇬🇷 Sisam</button>
+            <div class="menu-options" id="region-menu-container">
+                <!-- Dynamically populated and sorted alphabetically per language -->
             </div>
         </section>
 
