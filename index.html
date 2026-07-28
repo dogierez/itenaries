@@ -1,57 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europe Itineraries</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<!-- All Itinerary Data Modules -->
+    <script src="data/adriatic.js"></script>
+    <script src="data/balkans.js"></script>
+    <script src="data/central-balkans.js"></script>
+    <script src="data/central-europe.js"></script>
+    <script src="data/germany.js"></script>
+    <script src="data/greek.js"></script>
+    <script src="data/lake-constance.js"></script>
+    <script src="data/west-north-europe.js"></script>
+    
+    <!-- Main Application Engine -->
+    <script src="js/app.js?v=6"></script>
 
-    <!-- 1. REGION SELECTION SCREEN -->
-    <div id="region-screen" class="screen-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 2rem 1rem;">
-        
-        <!-- Main Title -->
-        <h1 id="app-title" class="neon-blue" style="margin-bottom: 20px; text-transform: uppercase;">Avrupa Rotaları</h1>
-
-        <!-- Language Selector -->
-        <div id="language-selector" class="lang-container" style="display: flex; gap: 15px; margin-bottom: 30px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 30px;">
-            <button class="lang-btn active" id="btn-lang-tr" onclick="appEngine.changeLanguage('TR')">TR</button>
-            <button class="lang-btn" id="btn-lang-en" onclick="appEngine.changeLanguage('EN')">EN</button>
-            <button class="lang-btn" id="btn-lang-de" onclick="appEngine.changeLanguage('DE')">DE</button>
-            <button class="lang-btn" id="btn-lang-ru" onclick="appEngine.changeLanguage('RU')">RU</button>
-        </div>
-
-        <!-- Region Title -->
-        <h2 id="region-title" class="neon-yellow" style="margin-bottom: 25px; text-transform: uppercase;">Rotanızı Seçin</h2>
-        
-        <!-- 3-Column Square Grid -->
-        <div id="region-menu-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; max-width: 450px; justify-content: center;">
-        </div>
-    </div>
-
-    <!-- 2. SETUP SCREEN (Map Pins) -->
-    <div id="setup-screen" class="screen-container hidden" style="display: flex; flex-direction: column; align-items: center;">
-        <h2 id="setup-title" class="neon-yellow" style="text-align: center; margin-bottom: 20px;">Başlangıç Seçin</h2>
-        <div class="base-options-container" id="base-options-container" style="width: 100%; display: flex; justify-content: center;">
-            <!-- Map and Pins will be injected here -->
-        </div>
-        <button id="btn-back-region" class="back-btn" onclick="appEngine.goBackFromSetup()" style="display: block; margin: 30px auto;">Rotalara Dön</button>
-    </div>
-
-    <!-- 3. ITINERARY SCREEN (Daily Flow) -->
-    <div id="itinerary-container" class="screen-container hidden">
-        <div class="top-controls" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
-            <button id="btn-back-setup" class="back-btn" onclick="appEngine.goBack('setup-screen')">Geri Dön</button>
-            <button id="btn-back-base" class="back-btn" onclick="appEngine.goBack('region-screen')">Haritaya Dön</button>
-        </div>
-        <div id="days-wrapper">
-            <!-- Daily cards injected here -->
-        </div>
-    </div>
-
-    <!-- Cache-busting parameter (?v=5) -->
-    <script src="js/app.js?v=5"></script>
 </body>
 </html>
