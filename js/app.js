@@ -170,7 +170,47 @@ const i18n = {
     }
 };
 
+const regionStyles = {
+    'greek': { bg: '#33A1FD', text: '#000000' }, 
+    'central-europe': { bg: '#F1C40F', text: '#000000' }, 
+    'central-balkans': { bg: '#9E150B', text: '#FFFFFF' }, 
+    'balkans': { bg: '#066DBE', text: '#FFFFFF' }, 
+    'adriatic': { bg: '#8F165A', text: '#FFFFFF' } 
+};
+
 window.routeModules = window.routeModules || {};
+
+function renderAlphabeticalMenu() {
+    const container = document.getElementById('region-menu-container');
+    if (!container) return; 
+
+    const langButtons = i18n[currentLang].buttons;
+    const localeCode = currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en';
+
+    const sortedKeys = Object.keys(langButtons).sort((a, b) => {
+        return langButtons[a].localeCompare(langButtons[b], localeCode, { sensitivity: 'base' });
+    });
+
+    let html = '';
+    sortedKeys.forEach(key => {
+        let text = langButtons[key];
+        let style = regionStyles[key] || { bg: '#333333', text: '#FFFFFF' };
+        
+        html += `<button onclick="selectRegion('${key}')" 
+                style="background-color: ${style.bg}; color: ${style.text}; 
+                border: none; border-radius: 15px; aspect-ratio: 1 / 1; 
+                display: flex; align-items: center; justify-content: center; 
+                text-align: center; font-weight: 700; font-family: 'Montserrat', sans-serif; 
+                cursor: pointer; padding: 10px; font-size: clamp(12px, 3.5vw, 16px); 
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s, opacity 0.2s;"
+                onmouseover="this.style.opacity='0.8'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.opacity='1'; this.style.transform='scale(1)';">
+                ${text}
+                </button>`;
+    });
+
+    container.innerHTML = html;
+}
 
 function hideAll() {
     if(document.getElementById('region-screen')) document.getElementById('region-screen').classList.add('hidden');
@@ -202,7 +242,11 @@ function goBack(targetId) {
 
 function goBackFromSetup() {
     if (selectedRegion === 'greek') {
-        goBack('island-screen');
+        if(document.getElementById('island-screen')) {
+            goBack('island-screen');
+        } else {
+            goBack('region-screen'); 
+        }
     } else {
         goBack('region-screen');
     }
@@ -217,7 +261,22 @@ function selectRegion(region) {
     appTitle.className = 'neon-yellow';
 
     if (region === 'greek') {
-        document.getElementById('island-screen').classList.remove('hidden');
+        const islandScreen = document.getElementById('island-screen');
+        if (islandScreen) {
+            islandScreen.classList.remove('hidden');
+        } else {
+            document.getElementById('setup-screen').classList.remove('hidden');
+            document.getElementById('setup-title').textContent = i18n[currentLang].islandTitle || 'Select Island';
+            const container = document.getElementById('base-options-container');
+            let html = '<div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; width:100%; max-width:400px; margin:auto;">';
+            const islands = ['chios', 'kos', 'lesbos', 'meis', 'rhodes', 'samos'];
+            const colors = {chios: '#304D63', kos: '#43634B', lesbos: '#9B870C', meis: '#800080', rhodes: '#800000', samos: '#CC5500'};
+            islands.forEach(isl => {
+                html += `<button style="background:${colors[isl]}; padding:30px 10px; font-size:1.2rem; font-weight:800; color:#fff; border-radius:20px; border:none; cursor:pointer;" onclick="selectIsland('${isl}')">🇬🇷 ${i18n[currentLang].islands[isl]}</button>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
         document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages['chios']}')`; 
     } else {
         selectedIsland = region;
@@ -557,8 +616,14 @@ function changeLanguage(lang) {
     if(document.getElementById('btn-rhodes')) document.getElementById('btn-rhodes').textContent = "🇬🇷 " + i18n[lang].islands.rhodes;
     if(document.getElementById('btn-samos')) document.getElementById('btn-samos').textContent = "🇬🇷 " + i18n[lang].islands.samos;
 
+    renderAlphabeticalMenu();
+
     if (document.getElementById('setup-screen') && !document.getElementById('setup-screen').classList.contains('hidden')) {
-        renderMap(); 
+        if (selectedRegion === 'greek' && !selectedIsland) {
+            selectRegion('greek');
+        } else {
+            renderMap(); 
+        }
     }
 
     if (document.getElementById('itinerary-container') && !document.getElementById('itinerary-container').classList.contains('hidden')) {
@@ -566,4 +631,15 @@ function changeLanguage(lang) {
     }
 }
 
+// Ensure appEngine object exists to prevent modular HTML buttons from breaking
+window.appEngine = {
+    changeLanguage: changeLanguage,
+    selectRegion: selectRegion,
+    selectIsland: selectIsland,
+    goBack: goBack,
+    goBackFromSetup: goBackFromSetup
+};
+
+// Initialization
 document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.8)), url('${backgroundImages['home']}')`;
+renderAlphabeticalMenu();
