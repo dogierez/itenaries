@@ -3,47 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>European Itineraries</title>
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <title>Europe Itineraries</title>
+    <link rel="stylesheet" href="css/style.css?v=10">
+    <!-- Adding Montserrat font since your app.js specifically calls for it inline -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <header>
-        <h1 id="main-title">European Itineraries</h1>
+        <h1 id="app-title" class="neon-blue">Europe Itineraries</h1>
         
-        <!-- Language Selector Buttons -->
+        <!-- Language Selector matching your exact JS IDs and logic -->
         <div id="language-selector" class="lang-switch">
-            <button class="lang-btn" data-lang="TR">TR</button>
-            <button class="lang-btn" data-lang="EN">EN</button>
-            <button class="lang-btn" data-lang="DE">DE</button>
-            <button class="lang-btn" data-lang="RU">RU</button>
+            <button id="btn-lang-tr" class="lang-btn active" onclick="appEngine.changeLanguage('TR')">TR</button>
+            <button id="btn-lang-en" class="lang-btn" onclick="appEngine.changeLanguage('EN')">EN</button>
+            <button id="btn-lang-de" class="lang-btn" onclick="appEngine.changeLanguage('DE')">DE</button>
+            <button id="btn-lang-ru" class="lang-btn" onclick="appEngine.changeLanguage('RU')">RU</button>
         </div>
     </header>
 
     <main>
-        <!-- 3-Column Grid Container for Route Buttons -->
-        <div id="route-buttons" class="grid-container">
-            <!-- Buttons are injected and sorted here by app.js -->
+        <!-- SCREEN 1: The Main Grid Menu -->
+        <div id="region-screen">
+            <h2 id="region-title" style="text-align: center; color: white;">Select Your Route</h2>
+            <!-- This is the exact ID your JS needs to inject the buttons -->
+            <div id="region-menu-container" class="grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; max-width: 800px; margin: 0 auto;">
+                <!-- app.js injects buttons here -->
+            </div>
         </div>
 
-        <!-- Selected Itinerary Content Display -->
-        <div id="itinerary-content">
-            <!-- Content appears here when a button is clicked -->
+        <!-- SCREEN 2: The Map Setup (Hidden by default) -->
+        <div id="setup-screen" class="hidden">
+            <h2 id="setup-title" style="text-align: center; color: white;">Select Starting Point</h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button id="btn-back-region" onclick="appEngine.goBackFromSetup()" style="padding: 10px 20px; cursor: pointer;">Back to Routes</button>
+            </div>
+            <!-- app.js injects the map here -->
+            <div id="base-options-container" style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; aspect-ratio: 4/3;"></div>
+        </div>
+
+        <!-- SCREEN 3: The Itinerary Content (Hidden by default) -->
+        <div id="itinerary-container" class="hidden">
+            <div style="text-align: center; margin-bottom: 20px; padding-top: 20px;">
+                <button id="btn-back-base" onclick="appEngine.goBack('setup-screen')" style="padding: 10px 20px; cursor: pointer; margin-right: 10px;">Back to Map</button>
+                <button id="btn-back-setup" onclick="appEngine.goBack('region-screen')" style="padding: 10px 20px; cursor: pointer;">Go Back</button>
+            </div>
+            <!-- app.js injects the day cards here -->
+            <div id="days-wrapper"></div>
         </div>
     </main>
 
-    <!-- The missing data files you rightfully called out -->
-    <script src="data/adriatic.js"></script>
-    <script src="data/balkans.js"></script>
-    <script src="data/central-balkans.js"></script>
-    <script src="data/central-europe.js"></script>
-    <script src="data/germany.js"></script>
-    <script src="data/greek.js"></script>
-    <script src="data/lake-constance.js"></script>
-    <script src="data/west-north-europe.js"></script>
-    
-    <!-- Main Application Engine -->
-    <script src="js/app.js?v=8"></script>
+    <!-- Main Engine only - it will handle loading the data automatically -->
+    <script src="js/app.js?v=10"></script>
 
 </body>
 </html>
