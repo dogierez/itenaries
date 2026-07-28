@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europe Itineraries Planner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header & Navigation -->
+        <header class="glass-panel">
+            <h1>Itinerary Planner</h1>
+            
+            <div class="controls">
+                <div id="language-selector">
+                    <button class="lang-btn active" onclick="appEngine.changeLanguage('EN')">EN</button>
+                    <button class="lang-btn" onclick="appEngine.changeLanguage('TR')">TR</button>
+                    <button class="lang-btn" onclick="appEngine.changeLanguage('DE')">DE</button>
+                    <button class="lang-btn" onclick="appEngine.changeLanguage('RU')">RU</button>
+                </div>
+            </div>
+
+            <nav id="region-buttons">
+                <button class="route-btn" onclick="appEngine.loadRoute('germany-inside-out', 'germany')">Germany Inside Out</button>
+                <button class="route-btn" onclick="appEngine.loadRoute('greek-islands', 'greek')">Greek Islands</button>
+                <button class="route-btn" onclick="appEngine.loadRoute('lake-constance', 'constance')">Lake Constance</button>
+                <button class="route-btn" onclick="appEngine.loadRoute('balkans', 'balkans')">Balkans</button>
+            </nav>
+        </header>
+
+        <!-- Dynamic Content Area -->
+        <main id="app-content" class="glass-panel">
+            <div class="welcome-message">
+                <h2>Welcome to your Planner</h2>
+                <p>Select a route from the menu above. The data is securely stored, ensuring that there is nowhere a heavy file can crash your browser.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- The Core Engine -->
+    <script src="js/app.js"></script>
+</body>
+</html>
