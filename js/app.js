@@ -123,6 +123,7 @@ function renderAlphabeticalMenu() {
     const container = document.getElementById('region-menu-container');
     if (!container) return;
 
+    // This now correctly pulls from the dynamically updated global currentLang variable
     const langButtons = i18n[currentLang].buttons;
     const localeCode = currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en';
 
@@ -141,10 +142,10 @@ function renderAlphabeticalMenu() {
 }
 
 const appEngine = {
-    currentLang: 'TR',
-
     changeLanguage: function(lang) {
-        this.currentLang = lang;
+        // FIX: Update the global variable, not a local one
+        currentLang = lang; 
+
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         document.getElementById(`btn-lang-${lang.toLowerCase()}`).classList.add('active');
 
@@ -152,7 +153,7 @@ const appEngine = {
         if (selectedRegion) {
             appTitle.textContent = i18n[lang].regions[selectedRegion] || i18n[lang].appTitle;
         } else {
-            appTitle.textContent = i18n[lang].appTitle; // Updates main header title correctly on home screen
+            appTitle.textContent = i18n[lang].appTitle; 
         }
 
         document.getElementById('region-title').textContent = i18n[lang].regionTitle;
@@ -161,6 +162,7 @@ const appEngine = {
         document.getElementById('btn-back-base').textContent = i18n[lang].backBase;
         document.getElementById('btn-back-setup').textContent = i18n[lang].backSetup;
 
+        // This will now successfully render translated buttons in alphabetical order
         renderAlphabeticalMenu();
 
         if (!document.getElementById('setup-screen').classList.contains('hidden')) renderMap();
