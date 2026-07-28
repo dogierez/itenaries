@@ -20,21 +20,17 @@
     </header>
 
     <main>
-        <!-- Level 0: Choose the Region (Turkish Alphabetically Sorted) -->
+        <!-- Level 0: Choose the Region -->
         <section id="region-screen">
             <h2 id="region-title">Rotanızı Seçin</h2>
-            <div class="menu-options" id="region-menu-container">
-                <!-- Dynamically populated and sorted via Turkish locale -->
-            </div>
+            <div class="menu-options" id="region-menu-container"></div>
         </section>
 
         <!-- Level 2: Choose Base/Starting Location Map Screen -->
         <section id="setup-screen" class="hidden">
             <button onclick="appEngine.goBackFromSetup()" class="back-btn-top" id="btn-back-setup">Geri Dön</button>
             <h2 id="setup-title" style="margin-right: 90px; text-align: left;">Başlangıç Seçin</h2>
-            <div class="map-container" id="base-options-container">
-                <!-- Map and Buttons dynamically injected here -->
-            </div>
+            <div class="map-container" id="base-options-container"></div>
         </section>
 
         <!-- Level 3: The Itinerary Cards -->
@@ -46,7 +42,6 @@
         </section>
     </main>
 
-    <!-- Core Dynamic Umbrella Engine -->
     <script src="js/app.js"></script>
 </body>
 </html>
