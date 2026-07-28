@@ -155,7 +155,6 @@ const appEngine = {
             appTitle.textContent = i18n[lang].appTitle;
         }
 
-        // Dynamically update main heading title based on active language
         document.getElementById('region-title').textContent = i18n[lang].regionTitle;
         document.getElementById('setup-title').textContent = i18n[lang].setupTitle;
         document.getElementById('btn-back-region').textContent = i18n[lang].backRegion;
