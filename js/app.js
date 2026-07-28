@@ -170,45 +170,7 @@ const i18n = {
     }
 };
 
-const regionStyles = {
-    'greek': { bg: '#33A1FD', text: '#000000' }, 
-    'central-europe': { bg: '#F1C40F', text: '#000000' }, 
-    'central-balkans': { bg: '#9E150B', text: '#FFFFFF' }, 
-    'balkans': { bg: '#066DBE', text: '#FFFFFF' }, 
-    'adriatic': { bg: '#8F165A', text: '#FFFFFF' } 
-};
-
-function renderAlphabeticalMenu() {
-    const container = document.getElementById('region-menu-container');
-    if (!container) return; 
-
-    const langButtons = i18n[currentLang].buttons;
-    const localeCode = currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en';
-
-    const sortedKeys = Object.keys(langButtons).sort((a, b) => {
-        return langButtons[a].localeCompare(langButtons[b], localeCode, { sensitivity: 'base' });
-    });
-
-    let html = '';
-    sortedKeys.forEach(key => {
-        let text = langButtons[key];
-        let style = regionStyles[key] || { bg: '#333333', text: '#FFFFFF' };
-        
-        html += `<button onclick="selectRegion('${key}')" 
-                style="background-color: ${style.bg}; color: ${style.text}; 
-                border: none; border-radius: 15px; aspect-ratio: 1 / 1; 
-                display: flex; align-items: center; justify-content: center; 
-                text-align: center; font-weight: 700; font-family: 'Montserrat', sans-serif; 
-                cursor: pointer; padding: 10px; font-size: clamp(12px, 3.5vw, 16px); 
-                box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s, opacity 0.2s;"
-                onmouseover="this.style.opacity='0.8'; this.style.transform='scale(1.05)';"
-                onmouseout="this.style.opacity='1'; this.style.transform='scale(1)';">
-                ${text}
-                </button>`;
-    });
-
-    container.innerHTML = html;
-}
+window.routeModules = window.routeModules || {};
 
 function hideAll() {
     if(document.getElementById('region-screen')) document.getElementById('region-screen').classList.add('hidden');
@@ -240,12 +202,7 @@ function goBack(targetId) {
 
 function goBackFromSetup() {
     if (selectedRegion === 'greek') {
-        if(document.getElementById('island-screen')) {
-            goBack('island-screen');
-        } else {
-            // For the modular grid interface
-            goBack('region-screen'); 
-        }
+        goBack('island-screen');
     } else {
         goBack('region-screen');
     }
@@ -260,23 +217,7 @@ function selectRegion(region) {
     appTitle.className = 'neon-yellow';
 
     if (region === 'greek') {
-        const islandScreen = document.getElementById('island-screen');
-        if (islandScreen) {
-            islandScreen.classList.remove('hidden');
-        } else {
-            // Fallback for modular interface missing the island screen
-            document.getElementById('setup-screen').classList.remove('hidden');
-            document.getElementById('setup-title').textContent = i18n[currentLang].islandTitle || 'Select Island';
-            const container = document.getElementById('base-options-container');
-            let html = '<div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; width:100%; max-width:400px; margin:auto;">';
-            const islands = ['chios', 'kos', 'lesbos', 'meis', 'rhodes', 'samos'];
-            const colors = {chios: '#304D63', kos: '#43634B', lesbos: '#9B870C', meis: '#800080', rhodes: '#800000', samos: '#CC5500'};
-            islands.forEach(isl => {
-                html += `<button style="background:${colors[isl]}; padding:30px 10px; font-size:1.2rem; font-weight:800; color:#fff; border-radius:20px; border:none; cursor:pointer;" onclick="selectIsland('${isl}')">🇬🇷 ${i18n[currentLang].islands[isl]}</button>`;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-        }
+        document.getElementById('island-screen').classList.remove('hidden');
         document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages['chios']}')`; 
     } else {
         selectedIsland = region;
@@ -364,10 +305,7 @@ function renderItinerary() {
     const regionData = window.routeModules && window.routeModules[selectedRegion] ? window.routeModules[selectedRegion][currentLang] : null;
 
     if(!regionData) { 
-        wrapper.innerHTML = `<div style="color:white;text-align:center;padding:40px;background:rgba(0,0,0,0.7);border-radius:10px;">
-                                <h2 style="color:#ff4444;">[Data Missing]</h2>
-                                <p>Could not load itinerary. Please ensure the data files are present.</p>
-                             </div>`; 
+        wrapper.innerHTML = `<h2 style="color:white;text-align:center;">Error Loading Itinerary Data</h2>`; 
         return; 
     }
     
@@ -392,24 +330,31 @@ function renderItinerary() {
         finalItinerary = [data.arrival, ...rotatedMiddle, data.departure];
 
     } else {
-        let orderArray = Object.keys(regionData);
-        
-        if (selectedRegion === 'central-balkans' && currentBaseLocation === 'podgorica') {
-            orderArray = ['budva', 'kotor', 'mostar', 'sarajevo', 'belgrade', 'nis'];
+        let routeOrder = [];
+        if (selectedRegion === 'central-europe') {
+            routeOrder = ['prague', 'munich', 'salzburg', 'vienna', 'bratislava', 'budapest'];
+        } else if (selectedRegion === 'central-balkans') {
+            routeOrder = ['belgrade', 'sarajevo', 'mostar', 'kotor', 'budva', 'nis'];
+            if (currentBaseLocation === 'podgorica') {
+                routeOrder = ['budva', 'kotor', 'mostar', 'sarajevo', 'belgrade', 'nis'];
+            }
+        } else if (selectedRegion === 'balkans') {
+            routeOrder = ['tirana', 'shkoder', 'prizren', 'pristina', 'skopje', 'ohrid', 'elbasan'];
+        } else if (selectedRegion === 'adriatic') {
+            routeOrder = ['tirana', 'durres', 'ksamil', 'bar', 'budva', 'kotor'];
         }
 
-        let startIndex = orderArray.indexOf(currentBaseLocation);
+        let startIndex = routeOrder.indexOf(currentBaseLocation);
         if(startIndex === -1) startIndex = 0;
         
         let rotatedCities = [];
-        for (let i = 0; i < orderArray.length; i++) {
-            rotatedCities.push(orderArray[(startIndex + i) % orderArray.length]);
+        for (let i = 0; i < routeOrder.length; i++) {
+            rotatedCities.push(routeOrder[(startIndex + i) % routeOrder.length]);
         }
 
         rotatedCities.forEach(city => {
             if(regionData[city]) {
-                let dayObjects = regionData[city].map(day => JSON.parse(JSON.stringify(day)));
-                finalItinerary.push(...dayObjects);
+                finalItinerary.push(...regionData[city]);
             }
         });
     }
@@ -599,7 +544,6 @@ function changeLanguage(lang) {
     if(document.getElementById('btn-back-base')) document.getElementById('btn-back-base').textContent = i18n[lang].backBase;
     if(document.getElementById('btn-back-setup')) document.getElementById('btn-back-setup').textContent = i18n[lang].backSetup;
 
-    // Update hardcoded buttons if using the older HTML
     if(document.getElementById('btn-route-greek')) document.getElementById('btn-route-greek').innerHTML = "🇬🇷 " + i18n[lang].buttons['greek'];
     if(document.getElementById('btn-route-central-europe')) document.getElementById('btn-route-central-europe').innerHTML = "🏰 " + i18n[lang].buttons['central-europe'];
     if(document.getElementById('btn-route-central-balkans')) document.getElementById('btn-route-central-balkans').innerHTML = "⛰️ " + i18n[lang].buttons['central-balkans'];
@@ -613,15 +557,8 @@ function changeLanguage(lang) {
     if(document.getElementById('btn-rhodes')) document.getElementById('btn-rhodes').textContent = "🇬🇷 " + i18n[lang].islands.rhodes;
     if(document.getElementById('btn-samos')) document.getElementById('btn-samos').textContent = "🇬🇷 " + i18n[lang].islands.samos;
 
-    renderAlphabeticalMenu();
-
     if (document.getElementById('setup-screen') && !document.getElementById('setup-screen').classList.contains('hidden')) {
-        if (selectedRegion === 'greek' && !selectedIsland) {
-            // Re-render dynamic island menu if active
-            selectRegion('greek');
-        } else {
-            renderMap(); 
-        }
+        renderMap(); 
     }
 
     if (document.getElementById('itinerary-container') && !document.getElementById('itinerary-container').classList.contains('hidden')) {
@@ -629,15 +566,4 @@ function changeLanguage(lang) {
     }
 }
 
-// Ensure appEngine object exists to prevent modular HTML buttons from breaking
-window.appEngine = {
-    changeLanguage: changeLanguage,
-    selectRegion: selectRegion,
-    selectIsland: selectIsland,
-    goBack: goBack,
-    goBackFromSetup: goBackFromSetup
-};
-
-// Initialization
 document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.8)), url('${backgroundImages['home']}')`;
-renderAlphabeticalMenu();
