@@ -104,19 +104,20 @@ const i18n = {
             'germany-inside-out': 'Германия изнутри', 'lake-constance': 'Боденское озеро', 'central-balkans': 'Центральные Балканы', 
             'balkans': 'Восточные Балканы', 'adriatic': 'Южная Адриатика' 
         },
-        cities: { berlin: 'Берлин', hamburg: 'Гамбург', bremen: 'Бремен', cologne: 'Кёльн', frankfurt: 'Франкфурт', stuttgart: 'Штутгарт', munich: 'Мюнхен', nuremberg: 'Нюрнберг', лейпциг: 'Лейпциг' }
+        cities: { berlin: 'Берлин', hamburg: 'Гамбург', bremen: 'Бремен', cologne: 'Кёльн', frankfurt: 'Франкфурт', stuttgart: 'Штутгарт', munich: 'Мюнхен', nuremberg: 'Нюрнберг', leipzig: 'Лейпциг' }
     }
 };
 
-const regionClasses = {
-    'greek': 'bg-btn-greek',
-    'central-europe': 'bg-btn-ce',
-    'west-north-europe': 'bg-btn-wne',
-    'germany-inside-out': 'bg-btn-germany',
-    'lake-constance': 'bg-btn-constance',
-    'central-balkans': 'bg-btn-central-balkans',
-    'balkans': 'bg-btn-balkans',
-    'adriatic': 'bg-btn-adriatic'
+// Strict styling with perfect contrast as requested.
+const regionStyles = {
+    'greek': { bg: '#33A1FD', text: '#000000' }, // Light Blue -> Black text
+    'central-europe': { bg: '#F1C40F', text: '#000000' }, // Yellow -> Black text
+    'west-north-europe': { bg: '#71DA39', text: '#000000' }, // Light Green -> Black text
+    'germany-inside-out': { bg: '#E72911', text: '#FFFFFF' }, // Dark Red -> White text
+    'lake-constance': { bg: '#ED70A6', text: '#000000' }, // Pink -> Black text
+    'central-balkans': { bg: '#9E150B', text: '#FFFFFF' }, // Deep Crimson -> White text
+    'balkans': { bg: '#066DBE', text: '#FFFFFF' }, // Dark Blue -> White text
+    'adriatic': { bg: '#8F165A', text: '#FFFFFF' } // Purple -> White text
 };
 
 function renderAlphabeticalMenu() {
@@ -133,10 +134,20 @@ function renderAlphabeticalMenu() {
     let html = '';
     sortedKeys.forEach(key => {
         let text = langButtons[key];
-        let colorClass = regionClasses[key] || 'bg-btn-greek';
+        let style = regionStyles[key] || { bg: '#333333', text: '#FFFFFF' };
         
-        // Added standard 'menu-btn' base class to ensure it picks up width and padding from style.css
-        html += `<button class="menu-btn ${colorClass}" onclick="appEngine.selectRegion('${key}')">${text}</button>`;
+        // Inline CSS mapping exactly to the 3-column square grid style
+        html += `<button onclick="appEngine.selectRegion('${key}')" 
+                style="background-color: ${style.bg}; color: ${style.text}; 
+                border: none; border-radius: 15px; aspect-ratio: 1 / 1; 
+                display: flex; align-items: center; justify-content: center; 
+                text-align: center; font-weight: 700; font-family: 'Montserrat', sans-serif; 
+                cursor: pointer; padding: 10px; font-size: clamp(12px, 3.5vw, 16px); 
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s, opacity 0.2s;"
+                onmouseover="this.style.opacity='0.8'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.opacity='1'; this.style.transform='scale(1)';">
+                ${text}
+                </button>`;
     });
 
     container.innerHTML = html;
