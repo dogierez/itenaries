@@ -45,9 +45,9 @@ const i18n = {
             'balkans': 'East Balkans Itinerary', 'adriatic': 'South Adriatic Itinerary' 
         },
         buttons: { 
-            'greek': '🇬🇷 Greek Islands', 'central-europe': '🏰 Central Europe', 'west-north-europe': '🇪🇺 West North Europe', 
-            'germany-inside-out': '🇩🇪 Germany Inside Out', 'lake-constance': '🇨🇭 Lake Constance', 'central-balkans': '⛰️ Central Balkans', 
-            'balkans': '🌄 East Balkans', 'adriatic': '🌊 South Adriatic' 
+            'greek': 'Greek Islands', 'central-europe': 'Central Europe', 'west-north-europe': 'West North Europe', 
+            'germany-inside-out': 'Germany Inside Out', 'lake-constance': 'Lake Constance', 'central-balkans': 'Central Balkans', 
+            'balkans': 'East Balkans', 'adriatic': 'South Adriatic' 
         },
         cities: { berlin: 'Berlin', hamburg: 'Hamburg', bremen: 'Bremen', cologne: 'Cologne', frankfurt: 'Frankfurt', stuttgart: 'Stuttgart', munich: 'Munich', nuremberg: 'Nuremberg', leipzig: 'Leipzig' }
     },
@@ -64,9 +64,9 @@ const i18n = {
             'balkans': 'Doğu Balkanlar Rotası', 'adriatic': 'Güney Adriyatik Turu' 
         },
         buttons: { 
-            'greek': '🇬🇷 Yunan Adaları', 'central-europe': '🏰 Orta Avrupa', 'west-north-europe': '🇪🇺 Batı Kuzey Avrupa', 
-            'germany-inside-out': '🇩🇪 Almanya İçten Dışa', 'lake-constance': '🇨🇭 Konstanz Gölü', 'central-balkans': '⛰️ Orta Balkanlar', 
-            'balkans': '🌄 Doğu Balkanlar', 'adriatic': '🌊 Güney Adriyatik' 
+            'greek': 'Yunan Adaları', 'central-europe': 'Orta Avrupa', 'west-north-europe': 'Batı Kuzey Avrupa', 
+            'germany-inside-out': 'Almanya İçten Dışa', 'lake-constance': 'Konstanz Gölü', 'central-balkans': 'Orta Balkanlar', 
+            'balkans': 'Doğu Balkanlar', 'adriatic': 'Güney Adriyatik' 
         },
         cities: { berlin: 'Berlin', hamburg: 'Hamburg', bremen: 'Bremen', cologne: 'Köln', frankfurt: 'Frankfurt', stuttgart: 'Stuttgart', munich: 'Münih', nuremberg: 'Nürnberg', leipzig: 'Leipzig' }
     },
@@ -82,9 +82,9 @@ const i18n = {
             'balkans': 'Ostbalkan Route', 'adriatic': 'Südadria Route' 
         },
         buttons: { 
-            'greek': '🇬🇷 Griechische Inseln', 'central-europe': '🏰 Mitteleuropa', 'west-north-europe': '🇪🇺 Westnordeuropa', 
-            'germany-inside-out': '🇩🇪 Deutschland von Innen', 'lake-constance': '🇨🇭 Bodensee', 'central-balkans': '⛰️ Zentralbalkan', 
-            'balkans': '🌄 Ostbalkan', 'adriatic': '🌊 Südadria' 
+            'greek': 'Griechische Inseln', 'central-europe': 'Mitteleuropa', 'west-north-europe': 'Westnordeuropa', 
+            'germany-inside-out': 'Deutschland von Innen', 'lake-constance': 'Bodensee', 'central-balkans': 'Zentralbalkan', 
+            'balkans': 'Ostbalkan', 'adriatic': 'Südadria' 
         },
         cities: { berlin: 'Berlin', hamburg: 'Hamburg', bremen: 'Bremen', cologne: 'Köln', frankfurt: 'Frankfurt', stuttgart: 'Stuttgart', munich: 'München', nuremberg: 'Nürnberg', leipzig: 'Leipzig' }
     },
@@ -100,9 +100,9 @@ const i18n = {
             'balkans': 'Маршрут: Восточные Балканы', 'adriatic': 'Маршрут: Южная Адриатика' 
         },
         buttons: { 
-            'greek': '🇬🇷 Греческие Острова', 'central-europe': '🏰 Центральная Европа', 'west-north-europe': '🇪🇺 Западная и Северная Европа', 
-            'germany-inside-out': '🇩🇪 Германия изнутри', 'lake-constance': '🇨🇭 Боденское озеро', 'central-balkans': '⛰️ Центральные Балканы', 
-            'balkans': '🌄 Восточные Балканы', 'adriatic': '🌊 Южная Адриатика' 
+            'greek': 'Греческие Острова', 'central-europe': 'Центральная Европа', 'west-north-europe': 'Западная и Северная Европа', 
+            'germany-inside-out': 'Германия изнутри', 'lake-constance': 'Боденское озеро', 'central-balkans': 'Центральные Балканы', 
+            'balkans': 'Восточные Балканы', 'adriatic': 'Южная Адриатика' 
         },
         cities: { berlin: 'Берлин', hamburg: 'Гамбург', bremen: 'Бремен', cologne: 'Кёльн', frankfurt: 'Франкфурт', stuttgart: 'Штутгарт', munich: 'Мюнхен', nuremberg: 'Нюрнберг', leipzig: 'Лейпциг' }
     }
@@ -124,10 +124,11 @@ function renderAlphabeticalMenu() {
     if (!container) return;
 
     const langButtons = i18n[currentLang].buttons;
-    
-    // Strict Turkish alphabetical sort using 'tr' locale
+    const localeCode = currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en';
+
+    // Sort alphabetically based on the translated button text in the chosen language
     const sortedKeys = Object.keys(langButtons).sort((a, b) => {
-        return langButtons[a].localeCompare(langButtons[b], 'tr', { sensitivity: 'base' });
+        return langButtons[a].localeCompare(langButtons[b], localeCode, { sensitivity: 'base' });
     });
 
     let html = '';
@@ -248,7 +249,7 @@ function renderItinerary() {
     wrapper.innerHTML = ''; 
     
     const regionData = window.routeModules?.[selectedRegion]?.[currentLang] || window.routeModules?.[selectedRegion]?.['EN'];
-    if(!regionData) { wrapper.innerHTML = `<h2 style="color:white;text-align:center;">[İçerik Yakında Ekenecek...]</h2>`; return; }
+    if(!regionData) { wrapper.innerHTML = `<h2 style="color:white;text-align:center;">[Content Coming Soon...]</h2>`; return; }
     
     let finalItinerary = [];
     let orderArray = Object.keys(regionData);
