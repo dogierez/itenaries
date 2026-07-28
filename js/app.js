@@ -152,7 +152,7 @@ const appEngine = {
         if (selectedRegion) {
             appTitle.textContent = i18n[lang].regions[selectedRegion] || i18n[lang].appTitle;
         } else {
-            appTitle.textContent = i18n[lang].appTitle;
+            appTitle.textContent = i18n[lang].appTitle; // Updates main header title correctly on home screen
         }
 
         document.getElementById('region-title').textContent = i18n[lang].regionTitle;
