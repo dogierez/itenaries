@@ -27,8 +27,22 @@ const backgroundImages = {
 };
 
 const mapPins = {
-    'germany-inside-out': { mapUrl: backgroundImages['germany-inside-out'], pins: { hamburg: {top: '15%', left: '45%'}, bremen: {top: '25%', left: '20%'}, cologne: {top: '50%', left: '15%'}, frankfurt: {top: '65%', left: '30%'}, stuttgart: {top: '85%', left: '35%'}, munich: {top: '85%', left: '70%'}, nuremberg: {top: '65%', left: '65%'}, leipzig: {top: '40%', left: '75%'}, berlin: {top: '20%', left: '75%'} } },
-    'lake-constance': { mapUrl: backgroundImages['lake-constance'], pins: { zurich: {top: '55%', left: '15%'}, constance: {top: '15%', left: '35%'}, ravensburg: {top: '15%', left: '75%'}, liechtenstein: {top: '50%', left: '85%'}, weesen: {top: '85%', left: '75%'}, freienbach: {top: '85%', left: '50%'}, horgen: {top: '85%', left: '25%'} } }
+    'germany-inside-out': { 
+        mapUrl: backgroundImages['germany-inside-out'], 
+        pins: { hamburg: {top: '15%', left: '45%'}, bremen: {top: '25%', left: '20%'}, cologne: {top: '50%', left: '15%'}, frankfurt: {top: '65%', left: '30%'}, stuttgart: {top: '85%', left: '35%'}, munich: {top: '85%', left: '70%'}, nuremberg: {top: '65%', left: '65%'}, leipzig: {top: '40%', left: '75%'}, berlin: {top: '20%', left: '75%'} } 
+    },
+    'lake-constance': { 
+        mapUrl: backgroundImages['lake-constance'], 
+        pins: { zurich: {top: '55%', left: '15%'}, constance: {top: '15%', left: '35%'}, ravensburg: {top: '15%', left: '75%'}, liechtenstein: {top: '50%', left: '85%'}, weesen: {top: '85%', left: '75%'}, freienbach: {top: '85%', left: '50%'}, horgen: {top: '85%', left: '25%'} } 
+    },
+    'adriatic': {
+        mapUrl: backgroundImages['adriatic'],
+        pins: {
+            'dubrovnik': { top: '65%', left: '45%' },
+            'kotor': { top: '75%', left: '55%' },
+            'mostar': { top: '45%', left: '40%' }
+        }
+    }
 };
 
 const i18n = {
@@ -39,6 +53,7 @@ const i18n = {
         seafood: 'Seafood', meat: 'Meat', snacks: 'Snacks/Meze',
         morning: 'Morning (09:00 - 12:00)', afternoon: 'Noon/Afternoon (12:00 - 17:00)', 
         evening: 'Evening (17:00 - 21:00)', night: 'Night (21:00 onwards)', dinnerSuggest: 'Dinner Suggestions', day: 'DAY',
+        startHere: 'Start Route',
         regions: { 
             'greek': 'Greek Islands Itinerary', 'central-europe': 'Central Europe Itinerary', 'west-north-europe': 'West North Europe Itinerary', 
             'germany-inside-out': 'Germany Inside Out Itinerary', 'lake-constance': 'Lake Constance Itinerary', 'central-balkans': 'Central Balkans Itinerary', 
@@ -58,6 +73,7 @@ const i18n = {
         seafood: 'Deniz Ürünleri', meat: 'Et', snacks: 'Meze/Atıştırmalık',
         morning: 'Sabah (09:00 - 12:00)', afternoon: 'Öğle/Öğleden Sonra (12:00 - 17:00)', 
         evening: 'Akşam (17:00 - 21:00)', night: 'Gece (21:00 ve sonrası)', dinnerSuggest: 'Akşam Yemeği Önerileri', day: 'GÜN',
+        startHere: 'Rotaya Başla',
         regions: { 
             'greek': 'Yunan Adaları Rotası', 'central-europe': 'Orta Avrupa Rotası', 'west-north-europe': 'Batı Kuzey Avrupa Rotası', 
             'germany-inside-out': 'Almanya İçten Dışa Rotası', 'lake-constance': 'Konstanz Gölü Rotası', 'central-balkans': 'Orta Balkanlar Rotası', 
@@ -76,6 +92,7 @@ const i18n = {
         center: 'Zentrum', north: 'Norden', south: 'Süden', east: 'Osten', west: 'Westen',
         seafood: 'Meeresfrüchte', meat: 'Fleisch', snacks: 'Snacks',
         morning: 'Morgen', afternoon: 'Nachmittag', evening: 'Abend', night: 'Nacht', dinnerSuggest: 'Abendessen', day: 'TAG',
+        startHere: 'Route Starten',
         regions: { 
             'greek': 'Griechische Inseln Route', 'central-europe': 'Mitteleuropa Route', 'west-north-europe': 'Westnordeuropa Route', 
             'germany-inside-out': 'Deutschland von Innen Route', 'lake-constance': 'Bodensee Route', 'central-balkans': 'Zentralbalkan Route', 
@@ -94,6 +111,7 @@ const i18n = {
         center: 'Центр', north: 'Север', south: 'Юг', east: 'Восток', west: 'Запад',
         seafood: 'Морепродукты', meat: 'Мясо', snacks: 'Закуски',
         morning: 'Утро', afternoon: 'День', evening: 'Вечер', night: 'Ночь', dinnerSuggest: 'Ужин', day: 'ДЕНЬ',
+        startHere: 'Начать маршрут',
         regions: { 
             'greek': 'Маршрут: Греческие Острова', 'central-europe': 'Маршрут: Центральная Европа', 'west-north-europe': 'Маршрут: Западная и Северная Европа', 
             'germany-inside-out': 'Маршрут: Германия изнутри', 'lake-constance': 'Маршрут: Боденское озеро', 'central-balkans': 'Маршрут: Центральные Балканы', 
@@ -108,16 +126,15 @@ const i18n = {
     }
 };
 
-// Strict styling with perfect contrast as requested.
 const regionStyles = {
-    'greek': { bg: '#33A1FD', text: '#000000' }, // Light Blue -> Black text
-    'central-europe': { bg: '#F1C40F', text: '#000000' }, // Yellow -> Black text
-    'west-north-europe': { bg: '#71DA39', text: '#000000' }, // Light Green -> Black text
-    'germany-inside-out': { bg: '#E72911', text: '#FFFFFF' }, // Dark Red -> White text
-    'lake-constance': { bg: '#ED70A6', text: '#000000' }, // Pink -> Black text
-    'central-balkans': { bg: '#9E150B', text: '#FFFFFF' }, // Deep Crimson -> White text
-    'balkans': { bg: '#066DBE', text: '#FFFFFF' }, // Dark Blue -> White text
-    'adriatic': { bg: '#8F165A', text: '#FFFFFF' } // Purple -> White text
+    'greek': { bg: '#33A1FD', text: '#000000' }, 
+    'central-europe': { bg: '#F1C40F', text: '#000000' }, 
+    'west-north-europe': { bg: '#71DA39', text: '#000000' }, 
+    'germany-inside-out': { bg: '#E72911', text: '#FFFFFF' }, 
+    'lake-constance': { bg: '#ED70A6', text: '#000000' }, 
+    'central-balkans': { bg: '#9E150B', text: '#FFFFFF' }, 
+    'balkans': { bg: '#066DBE', text: '#FFFFFF' }, 
+    'adriatic': { bg: '#8F165A', text: '#FFFFFF' } 
 };
 
 function renderAlphabeticalMenu() {
@@ -136,7 +153,6 @@ function renderAlphabeticalMenu() {
         let text = langButtons[key];
         let style = regionStyles[key] || { bg: '#333333', text: '#FFFFFF' };
         
-        // Inline CSS mapping exactly to the 3-column square grid style
         html += `<button onclick="appEngine.selectRegion('${key}')" 
                 style="background-color: ${style.bg}; color: ${style.text}; 
                 border: none; border-radius: 15px; aspect-ratio: 1 / 1; 
@@ -196,11 +212,20 @@ const appEngine = {
             const script = document.createElement('script');
             script.id = scriptId;
             script.src = `data/${dataFileName}.js`;
+            
             script.onload = () => {
                 document.getElementById('setup-screen').classList.remove('hidden');
                 document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages[region] || backgroundImages['home']}')`;
                 renderMap();
             };
+            
+            script.onerror = () => {
+                // If file is missing, do NOT silently crash. Show map anyway.
+                document.getElementById('setup-screen').classList.remove('hidden');
+                document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages[region] || backgroundImages['home']}')`;
+                renderMap();
+            };
+            
             document.body.appendChild(script);
         } else {
             document.getElementById('setup-screen').classList.remove('hidden');
@@ -235,17 +260,26 @@ function hideAll() {
 
 function renderMap() {
     const container = document.getElementById('base-options-container');
-    if (!selectedIsland || !mapPins[selectedIsland]) return;
+    if (!selectedIsland) return;
+    
     const pinData = mapPins[selectedIsland];
     let pinsHTML = '';
+    let mapUrl = backgroundImages[selectedIsland] || backgroundImages['home'];
     
-    for (let key in pinData.pins) {
-        let cityObj = pinData.pins[key];
-        let translatedCity = i18n[currentLang].cities[key] || key;
-        pinsHTML += `<button class="map-pin-btn" style="top: ${cityObj.top}; left: ${cityObj.left};" onclick="startApp('${key}')">${translatedCity}</button>`;
+    // FAILSAFE FIX: If there are pins, draw them. If nowhere is defined yet, draw a giant "START HERE" button.
+    if (pinData && pinData.pins) {
+        mapUrl = pinData.mapUrl || mapUrl;
+        for (let key in pinData.pins) {
+            let cityObj = pinData.pins[key];
+            let translatedCity = i18n[currentLang].cities[key] || key;
+            pinsHTML += `<button class="map-pin-btn" style="top: ${cityObj.top}; left: ${cityObj.left};" onclick="startApp('${key}')">${translatedCity}</button>`;
+        }
+    } else {
+        let startText = i18n[currentLang].startHere || 'Start Route';
+        pinsHTML = `<button class="map-pin-btn" style="top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 15px 30px; font-size: 18px; border-radius: 8px; cursor: pointer;" onclick="startApp('default')">${startText}</button>`;
     }
     
-    container.innerHTML = `<div class="real-map-wrapper" style="background-image: url('${pinData.mapUrl}');"><div style="position: absolute; inset: 0; background: rgba(0,0,0,0.15);"></div>${pinsHTML}</div>`;
+    container.innerHTML = `<div class="real-map-wrapper" style="background-image: url('${mapUrl}');"><div style="position: absolute; inset: 0; background: rgba(0,0,0,0.15);"></div>${pinsHTML}</div>`;
 }
 
 function startApp(baseLocation) {
@@ -259,8 +293,17 @@ function renderItinerary() {
     const wrapper = document.getElementById('days-wrapper');
     wrapper.innerHTML = ''; 
     
-    const regionData = window.routeModules?.[selectedRegion]?.[currentLang] || window.routeModules?.[selectedRegion]?.['EN'];
-    if(!regionData) { wrapper.innerHTML = `<h2 style="color:white;text-align:center;">[Content Coming Soon...]</h2>`; return; }
+    const regionData = window.routeModules && window.routeModules[selectedRegion] ? (window.routeModules[selectedRegion][currentLang] || window.routeModules[selectedRegion]['EN']) : null;
+    
+    // EXPLICIT WARNING FIX: Tell the user exactly if the data couldn't be loaded instead of showing a blank screen.
+    if(!regionData) { 
+        wrapper.innerHTML = `<div style="color:white;text-align:center;padding: 40px; background: rgba(0,0,0,0.7); border-radius: 10px;">
+                                <h2 style="color: #ff4444;">[Itinerary Data Missing]</h2>
+                                <p>The app could not find the itinerary data for <strong>${selectedRegion}</strong>.</p>
+                                <p>Ensure your <code>data/${selectedRegion}.js</code> file correctly assigns data to <code>window.routeModules['${selectedRegion}']</code>.</p>
+                             </div>`; 
+        return; 
+    }
     
     let finalItinerary = [];
     let orderArray = Object.keys(regionData);
@@ -279,11 +322,15 @@ function renderItinerary() {
         }
     });
 
+    if(finalItinerary.length === 0) return;
+
     let lastDay = finalItinerary[finalItinerary.length - 1];
     let translatedCity = i18n[currentLang].cities[currentBaseLocation] || currentBaseLocation;
+    if (translatedCity === 'default') translatedCity = i18n[currentLang].setupTitle;
+    
     const depTitle = { 'EN': `Return to ${translatedCity}`, 'TR': `${translatedCity}'a Dönüş`, 'DE': `Rückkehr nach ${translatedCity}`, 'RU': `Возврат в ${translatedCity}` };
     if(lastDay) {
-        lastDay.title = depTitle[currentLang];
+        lastDay.title = depTitle[currentLang] || depTitle['EN'];
         lastDay.afternoon.push(currentLang === 'TR' ? 'Yolculuğu sonlandırmak için başlangıç noktasına dön.' : 'Return to starting point to conclude the road trip.');
     }
 
@@ -291,7 +338,7 @@ function renderItinerary() {
 
     finalItinerary.forEach((day, index) => {
         let dayNum = index + 1;
-        let imageUrl = day.img || backgroundImages['lake-constance'];
+        let imageUrl = day.img || backgroundImages['home'];
         let titleHtml = `<span class="title-city">${day.title}</span>`;
 
         let tasksHTML = '';
