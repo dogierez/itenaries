@@ -1,14 +1,11 @@
 // data/germany.js
 
-// Initialize the global route modules object if it doesn't exist
 window.routeModules = window.routeModules || {};
 
-// Register the Germany Inside Out route
 window.routeModules['germany-inside-out'] = {
     id: 'germany-inside-out',
     mapUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Western_Europe_%28orthographic_projection%29.svg/1024px-Western_Europe_%28orthographic_projection%29.svg.png',
     
-    // Map pin coordinates specific to this route
     pins: {
         hamburg: { top: '15%', left: '45%' },
         bremen: { top: '25%', left: '20%' },
@@ -21,306 +18,133 @@ window.routeModules['germany-inside-out'] = {
         berlin: { top: '20%', left: '75%' }
     },
 
-    // Daily itinerary data categorized by language and city
     itinerary: {
         'EN': {
             berlin: [
-                { 
-                    id: 'berlin-1', title: 'Berlin', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', 
-                    morning: ['Get settled.'], afternoon: ['Explore.'], evening: ['Walk.'], night: ['Rest.'], 
-                    dinner: { seafood: {name: 'Käfer', desc: 'Fish.'}, meat: {name: 'Grill', desc: 'Steaks.'}, snacks: {name: 'Wurst', desc: 'Local.'} } 
-                }, 
-                { 
-                    id: 'berlin-2', title: 'Berlin', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', 
-                    morning: ['Wall.'], afternoon: ['Island.'], evening: ['Mitte.'], night: ['Prepare.'], 
-                    dinner: { seafood: {name: 'Fritz', desc: 'Fish.'}, meat: {name: 'House', desc: 'Meat.'}, snacks: {name: 'Kebab', desc: 'Portions.'} } 
-                }
+                { id: 'berlin-1', title: 'Berlin (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', morning: ['Get settled before starting the driving legs.'], afternoon: ['Explore the capital city.'], evening: ['Walk around the Brandenburg Gate.'], night: ['Rest in the hotel.'], dinner: { seafood: {name: 'Käfer', desc: 'Fresh fish.'}, meat: {name: 'Grill Royal', desc: 'Protein-heavy steaks.'}, snacks: {name: 'Currywurst Stand', desc: 'Local sausages without the bun.'} } },
+                { id: 'berlin-2', title: 'Berlin (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', morning: ['Visit the Berlin Wall memorial.'], afternoon: ['Explore Museum Island.'], evening: ['Enjoy the vibrant atmosphere of Mitte.'], night: ['Prepare for the first major driving leg.'], dinner: { seafood: {name: 'Fischers Fritz', desc: 'Seafood.'}, meat: {name: 'Block House', desc: 'Meat plates.'}, snacks: {name: 'Döner Kebab', desc: 'Meat portions.'} } }
             ],
             hamburg: [
-                { 
-                    id: 'hamburg-1', title: 'Hamburg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Drive.'], afternoon: ['Harbor.'], evening: ['River.'], night: ['Atmos.'], 
-                    dinner: { seafood: {name: 'Hafen', desc: 'Catch.'}, meat: {name: 'Estancia', desc: 'Steaks.'}, snacks: {name: '10', desc: 'Bites.'} } 
-                }, 
-                { 
-                    id: 'hamburg-2', title: 'Hamburg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Speicher.'], afternoon: ['Miniatur Wunderland for Deniz Dora.'], evening: ['Alster.'], night: ['Hotel.'], 
-                    dinner: { seafood: {name: 'Liman', desc: 'Fish.'}, meat: {name: 'Meatery', desc: 'Ribs.'}, snacks: {name: 'Perle', desc: 'Snacks.'} } 
-                }
+                { id: 'hamburg-1', title: 'Hamburg (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Tackle the 290 km drive to Hamburg.'], afternoon: ['Explore the massive harbor.'], evening: ['Walk along the Elbe river.'], night: ['Enjoy the maritime atmosphere.'], dinner: { seafood: {name: 'Fischereihafen', desc: 'Fresh harbor catch.'}, meat: {name: 'Estancia', desc: 'Steakhouse.'}, snacks: {name: 'Brücke 10', desc: 'Bites.'} } },
+                { id: 'hamburg-2', title: 'Hamburg (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Visit Speicherstadt.'], afternoon: ['Visit Miniatur Wunderland to easily entertain Deniz Dora for an afternoon.'], evening: ['Walk around the Alster lakes.'], night: ['Rest in the hotel.'], dinner: { seafood: {name: 'Liman', desc: 'Seafood.'}, meat: {name: 'Meatery', desc: 'Ribs and cuts.'}, snacks: {name: 'Strandperle', desc: 'Snacks.'} } }
             ],
             bremen: [
-                { 
-                    id: 'bremen-1', title: 'Bremen', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', 
-                    morning: ['Drive.'], afternoon: ['Center.'], evening: ['Statue.'], night: ['Relax.'], 
-                    dinner: { seafood: {name: 'Hahn', desc: 'Fish.'}, meat: {name: 'Schutt', desc: 'Pork.'}, snacks: {name: 'Gebel', desc: 'Sausages.'} } 
-                }
+                { id: 'bremen-1', title: 'Bremen (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', morning: ['Drive 126 km to Bremen.'], afternoon: ['Wander the historic center freely during this short transit day.'], evening: ['See the Town Musicians of Bremen statue.'], night: ['Relax.'], dinner: { seafood: {name: 'Knurrhahn', desc: 'Fish dishes.'}, meat: {name: 'Schüttinger', desc: 'Pork dishes.'}, snacks: {name: 'Spitzen Gebel', desc: 'Local sausages.'} } }
             ],
             cologne: [
-                { 
-                    id: 'cologne-1', title: 'Cologne', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', 
-                    morning: ['Drive.'], afternoon: ['Hotel.'], evening: ['Cathedral.'], night: ['Keto.'], 
-                    dinner: { seafood: {name: 'Poisson', desc: 'Seafood.'}, meat: {name: 'Fruh', desc: 'Bratwurst & Veggies.'}, snacks: {name: 'Sion', desc: 'Sausages.'} } 
-                }
+                { id: 'cologne-1', title: 'Cologne (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', morning: ['Complete the 314 km leg to Cologne.'], afternoon: ['Check into the hotel.'], evening: ['Walk near the Cologne Cathedral.'], night: ['Find a great keto-friendly dinner of local bratwurst and roasted vegetables near the Cathedral.'], dinner: { seafood: {name: 'Poisson', desc: 'Seafood.'}, meat: {name: 'Früh am Dom', desc: 'Bratwurst and roasted vegetables.'}, snacks: {name: 'Brauhaus Sion', desc: 'Sausages.'} } }
             ],
             frankfurt: [
-                { 
-                    id: 'frankfurt-1', title: 'Frankfurt', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', 
-                    morning: ['Drive.'], afternoon: ['Skyline.'], evening: ['River.'], night: ['Rest.'], 
-                    dinner: { seafood: {name: 'Oceans', desc: 'Seafood.'}, meat: {name: 'Grill', desc: 'Meats.'}, snacks: {name: 'Wagner', desc: 'Pork.'} } 
-                }
+                { id: 'frankfurt-1', title: 'Frankfurt am Main (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', morning: ['Drive 191 km to Frankfurt am Main.'], afternoon: ['Explore the modern skyline and riverfront during the single night stay.'], evening: ['Walk along the riverfront.'], night: ['Rest.'], dinner: { seafood: {name: 'Oceans', desc: 'Seafood.'}, meat: {name: 'Eiserner Steg Grill', desc: 'Meats.'}, snacks: {name: 'Apfelwein Wagner', desc: 'Roast pork.'} } }
             ],
             stuttgart: [
-                { 
-                    id: 'stuttgart-1', title: 'Stuttgart', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', 
-                    morning: ['Drive.'], afternoon: ['Museums.'], evening: ['OEM components.'], night: ['Hotel.'], 
-                    dinner: { seafood: {name: 'Kanzlei', desc: 'Fish.'}, meat: {name: 'Abacco', desc: 'Steak.'}, snacks: {name: 'Carls', desc: 'Meats.'} } 
-                }
+                { id: 'stuttgart-1', title: 'Stuttgart (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', morning: ['Drive 205 km to Stuttgart.'], afternoon: ['Dedicate the day to exploring mechanical components and automotive engineering at the Mercedes-Benz or Porsche museums.'], evening: ['Appreciate the vehicle craftsmanship here to satisfy your interest in OEM car parts.'], night: ['Relax at the hotel.'], dinner: { seafood: {name: 'Alte Kanzlei', desc: 'Fish.'}, meat: {name: 'Abacco', desc: 'Steakhouse.'}, snacks: {name: 'Carls Brauhaus', desc: 'Meats.'} } }
             ],
             munich: [
-                { 
-                    id: 'munich-1', title: 'Munich', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', 
-                    morning: ['Drive.'], afternoon: ['Museum.'], evening: ['Walk.'], night: ['Dine.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Fish.'}, meat: {name: 'Keller', desc: 'Roast.'}, snacks: {name: 'Herz', desc: 'Sausages.'} } 
-                }
+                { id: 'munich-1', title: 'Munich (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', morning: ['Drive 232 km to Munich for a two-night stay.'], afternoon: ['Visit the Deutsches Museum for massive science exhibits.'], evening: ['Walk through Marienplatz.'], night: ['Dine in a traditional setting.'], dinner: { seafood: {name: 'Austernkeller', desc: 'Fish.'}, meat: {name: 'Augustiner-Keller', desc: 'Roast meats.'}, snacks: {name: 'Bratwurstherzl', desc: 'Sausages.'} } },
+                { id: 'munich-2', title: 'Munich (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Englischer_Garten_M%C3%BCnchen.jpg/800px-Englischer_Garten_M%C3%BCnchen.jpg', morning: ['Relax outdoors in the English Garden.'], afternoon: ['Enjoy the natural landscapes.'], evening: ['Visit local sights.'], night: ['Rest well.'], dinner: { seafood: {name: 'Pescheria', desc: 'Seafood.'}, meat: {name: 'Haxnbauer', desc: 'Pork knuckles.'}, snacks: {name: 'Viktualienmarkt', desc: 'Meat cuts.'} } }
             ],
             nuremberg: [
-                { 
-                    id: 'nuremberg-1', title: 'Nuremberg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', 
-                    morning: ['Drive.'], afternoon: ['Castle.'], evening: ['Streets.'], night: ['Town.'], 
-                    dinner: { seafood: {name: 'Kuchn', desc: 'Fish.'}, meat: {name: 'Röslein', desc: 'Sausages.'}, snacks: {name: 'Haus', desc: 'Meats.'} } 
-                }
+                { id: 'nuremberg-1', title: 'Nuremberg (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', morning: ['Head north for 169 km to Nuremberg.'], afternoon: ['Explore the impressive medieval castle architecture.'], evening: ['Walk the historic streets.'], night: ['Enjoy the old town atmosphere.'], dinner: { seafood: {name: 'Alte Küchn', desc: 'Fish.'}, meat: {name: 'Bratwurst Röslein', desc: 'Nuremberg sausages.'}, snacks: {name: 'Hausbrauerei', desc: 'Meats.'} } }
             ],
             leipzig: [
-                { 
-                    id: 'leipzig-1', title: 'Leipzig', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', 
-                    morning: ['Drive.'], afternoon: ['Center.'], evening: ['Walk.'], night: ['Rest.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Fish.'}, meat: {name: 'Hof', desc: 'Meat.'}, snacks: {name: 'Bahnhof', desc: 'Sausages.'} } 
-                }
+                { id: 'leipzig-1', title: 'Leipzig (Germany)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', morning: ['Drive 286 km to Leipzig.'], afternoon: ['Enjoy the highly walkable historic center for one night.'], evening: ['Walk the historic center.'], night: ['Rest.'], dinner: { seafood: {name: 'Auerbachs Keller', desc: 'Fish options.'}, meat: {name: 'Barthels Hof', desc: 'Meat plates.'}, snacks: {name: 'Bayerischer Bahnhof', desc: 'Sausages.'} } }
             ]
         },
         'TR': {
             berlin: [
-                { 
-                    id: 'berlin-1', title: 'Berlin', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', 
-                    morning: ['Yerleş.'], afternoon: ['Başkent.'], evening: ['Kapı.'], night: ['Dinlen.'], 
-                    dinner: { seafood: {name: 'Käfer', desc: 'Balık.'}, meat: {name: 'Grill', desc: 'Biftek.'}, snacks: {name: 'Stand', desc: 'Sosis.'} } 
-                }, 
-                { 
-                    id: 'berlin-2', title: 'Berlin', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', 
-                    morning: ['Anıt.'], afternoon: ['Ada.'], evening: ['Mitte.'], night: ['Hazırlan.'], 
-                    dinner: { seafood: {name: 'Fritz', desc: 'Balık.'}, meat: {name: 'House', desc: 'Et.'}, snacks: {name: 'Kebab', desc: 'Döner.'} } 
-                }
+                { id: 'berlin-1', title: 'Berlin (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', morning: ['Sürüşe başlamadan önce yerleş.'], afternoon: ['Başkenti keşfet.'], evening: ['Brandenburg Kapısı etrafında yürü.'], night: ['Otelde dinlen.'], dinner: { seafood: {name: 'Käfer', desc: 'Taze balık.'}, meat: {name: 'Grill Royal', desc: 'Protein ağırlıklı biftek.'}, snacks: {name: 'Currywurst Stand', desc: 'Ekmeksiz yerel sosis.'} } },
+                { id: 'berlin-2', title: 'Berlin (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', morning: ['Berlin Duvarı anıtını ziyaret et.'], afternoon: ['Müzeler Adası\'nı keşfet.'], evening: ['Mitte\'nin canlı atmosferinin tadını çıkar.'], night: ['İlk büyük yolculuk için hazırlan.'], dinner: { seafood: {name: 'Fischers Fritz', desc: 'Deniz ürünleri.'}, meat: {name: 'Block House', desc: 'Et tabakları.'}, snacks: {name: 'Döner Kebab', desc: 'Et porsiyonları.'} } }
             ],
             hamburg: [
-                { 
-                    id: 'hamburg-1', title: 'Hamburg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Sür.'], afternoon: ['Liman.'], evening: ['Nehir.'], night: ['Atmosfer.'], 
-                    dinner: { seafood: {name: 'Hafen', desc: 'Av.'}, meat: {name: 'Estancia', desc: 'Restoran.'}, snacks: {name: 'Brucke', desc: 'Atıştırmalık.'} } 
-                }, 
-                { 
-                    id: 'hamburg-2', title: 'Hamburg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Speicherstadt.'], afternoon: ['Miniatur Wunderland, Deniz Dora için.'], evening: ['Alster.'], night: ['Otel.'], 
-                    dinner: { seafood: {name: 'Liman', desc: 'Balık.'}, meat: {name: 'Meatery', desc: 'Kaburga.'}, snacks: {name: 'Perle', desc: 'Atıştırmalık.'} } 
-                }
+                { id: 'hamburg-1', title: 'Hamburg (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Hamburg\'a olan 290 km\'lik sürüşü tamamla.'], afternoon: ['Devasa limanı keşfet.'], evening: ['Elbe nehri boyunca yürü.'], night: ['Denizcilik atmosferinin tadını çıkar.'], dinner: { seafood: {name: 'Fischereihafen', desc: 'Taze liman avı.'}, meat: {name: 'Estancia', desc: 'Et restoranı.'}, snacks: {name: 'Brücke 10', desc: 'Atıştırmalık.'} } },
+                { id: 'hamburg-2', title: 'Hamburg (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Speicherstadt\'ı ziyaret et.'], afternoon: ['Deniz Dora\'yı kolayca eğlendirmek için öğleden sonra Miniatur Wunderland\'ı ziyaret et.'], evening: ['Alster gölleri etrafında yürü.'], night: ['Otelde dinlen.'], dinner: { seafood: {name: 'Liman', desc: 'Deniz ürünleri.'}, meat: {name: 'Meatery', desc: 'Kaburga ve et.'}, snacks: {name: 'Strandperle', desc: 'Atıştırmalık.'} } }
             ],
             bremen: [
-                { 
-                    id: 'bremen-1', title: 'Bremen', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', 
-                    morning: ['Sür.'], afternoon: ['Merkez.'], evening: ['Heykel.'], night: ['Dinlen.'], 
-                    dinner: { seafood: {name: 'Hahn', desc: 'Balık.'}, meat: {name: 'Schutt', desc: 'Domuz.'}, snacks: {name: 'Gebel', desc: 'Sosis.'} } 
-                }
+                { id: 'bremen-1', title: 'Bremen (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', morning: ['Bremen\'e 126 km sür.'], afternoon: ['Bu kısa geçiş gününde tarihi merkezi özgürce dolaş.'], evening: ['Bremen Mızıkacıları heykelini gör.'], night: ['Dinlen.'], dinner: { seafood: {name: 'Knurrhahn', desc: 'Balık yemekleri.'}, meat: {name: 'Schüttinger', desc: 'Domuz eti tabakları.'}, snacks: {name: 'Spitzen Gebel', desc: 'Yerel sosisler.'} } }
             ],
             cologne: [
-                { 
-                    id: 'cologne-1', title: 'Köln', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', 
-                    morning: ['Sür.'], afternoon: ['Otel.'], evening: ['Katedral.'], night: ['Keto.'], 
-                    dinner: { seafood: {name: 'Poisson', desc: 'Balık.'}, meat: {name: 'Fruh', desc: 'Bratwurst & Sebze.'}, snacks: {name: 'Sion', desc: 'Sosis.'} } 
-                }
+                { id: 'cologne-1', title: 'Köln (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', morning: ['Köln\'e olan 314 km\'lik etabı tamamla.'], afternoon: ['Otele giriş yap.'], evening: ['Köln Katedrali yakınında yürü.'], night: ['Katedralin yakınında yerel bratwurst ve kavrulmuş sebzelerden oluşan keto dostu harika bir akşam yemeği bul.'], dinner: { seafood: {name: 'Poisson', desc: 'Deniz ürünleri.'}, meat: {name: 'Früh am Dom', desc: 'Bratwurst ve kavrulmuş sebzeler.'}, snacks: {name: 'Brauhaus Sion', desc: 'Sosisler.'} } }
             ],
             frankfurt: [
-                { 
-                    id: 'frankfurt-1', title: 'Frankfurt', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', 
-                    morning: ['Sür.'], afternoon: ['Silüet.'], evening: ['Nehir.'], night: ['Dinlen.'], 
-                    dinner: { seafood: {name: 'Oceans', desc: 'Balık.'}, meat: {name: 'Grill', desc: 'Et.'}, snacks: {name: 'Wagner', desc: 'Domuz.'} } 
-                }
+                { id: 'frankfurt-1', title: 'Frankfurt am Main (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', morning: ['Frankfurt am Main\'a 191 km sür.'], afternoon: ['Tek gecelik konaklama boyunca modern silüeti ve nehir kıyısını keşfet.'], evening: ['Nehir kıyısında yürü.'], night: ['Dinlen.'], dinner: { seafood: {name: 'Oceans', desc: 'Deniz ürünleri.'}, meat: {name: 'Eiserner Steg Grill', desc: 'Etler.'}, snacks: {name: 'Apfelwein Wagner', desc: 'Fırın domuz eti.'} } }
             ],
             stuttgart: [
-                { 
-                    id: 'stuttgart-1', title: 'Stuttgart', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', 
-                    morning: ['Sür.'], afternoon: ['Müze.'], evening: ['Araçlar.'], night: ['Dinlen.'], 
-                    dinner: { seafood: {name: 'Kanzlei', desc: 'Balık.'}, meat: {name: 'Abacco', desc: 'Et.'}, snacks: {name: 'Carls', desc: 'Et.'} } 
-                }
+                { id: 'stuttgart-1', title: 'Stuttgart (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', morning: ['Stuttgart\'a 205 km sür.'], afternoon: ['Günü Mercedes-Benz veya Porsche müzelerinde mekanik bileşenleri ve otomotiv mühendisliğini keşfetmeye ada.'], evening: ['OEM araç parçalarına olan ilgini tatmin etmek için buradaki araç işçiliğini takdir et.'], night: ['Otelde dinlen.'], dinner: { seafood: {name: 'Alte Kanzlei', desc: 'Balık.'}, meat: {name: 'Abacco', desc: 'Et restoranı.'}, snacks: {name: 'Carls Brauhaus', desc: 'Etler.'} } }
             ],
             munich: [
-                { 
-                    id: 'munich-1', title: 'Münih', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', 
-                    morning: ['Sür.'], afternoon: ['Müze.'], evening: ['Meydan.'], night: ['Yemek.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Balık.'}, meat: {name: 'Keller', desc: 'Et.'}, snacks: {name: 'Herz', desc: 'Sosis.'} } 
-                }
+                { id: 'munich-1', title: 'Münih (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', morning: ['İki gecelik konaklama için Münih\'e 232 km sür.'], afternoon: ['Devasa bilim sergileri için Deutsches Museum\'u ziyaret et.'], evening: ['Marienplatz\'da yürü.'], night: ['Geleneksel bir ortamda akşam yemeği ye.'], dinner: { seafood: {name: 'Austernkeller', desc: 'Balık.'}, meat: {name: 'Augustiner-Keller', desc: 'Kavrulmuş etler.'}, snacks: {name: 'Bratwurstherzl', desc: 'Sosisler.'} } },
+                { id: 'munich-2', title: 'Münih (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Englischer_Garten_M%C3%BCnchen.jpg/800px-Englischer_Garten_M%C3%BCnchen.jpg', morning: ['İngiliz Bahçesi\'nde açık havada dinlen.'], afternoon: ['Doğal manzaraların tadını çıkar.'], evening: ['Yerel turistik yerleri ziyaret et.'], night: ['İyice dinlen.'], dinner: { seafood: {name: 'Pescheria', desc: 'Deniz ürünleri.'}, meat: {name: 'Haxnbauer', desc: 'Domuz incikleri.'}, snacks: {name: 'Viktualienmarkt', desc: 'Et kesimleri.'} } }
             ],
             nuremberg: [
-                { 
-                    id: 'nuremberg-1', title: 'Nürnberg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', 
-                    morning: ['Sür.'], afternoon: ['Kale.'], evening: ['Sokak.'], night: ['Atmosfer.'], 
-                    dinner: { seafood: {name: 'Kuchn', desc: 'Balık.'}, meat: {name: 'Roslein', desc: 'Sosis.'}, snacks: {name: 'Haus', desc: 'Et.'} } 
-                }
+                { id: 'nuremberg-1', title: 'Nürnberg (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', morning: ['Nürnberg\'e 169 km kuzeye doğru ilerle.'], afternoon: ['Etkileyici ortaçağ kalesi mimarisini keşfet.'], evening: ['Tarihi sokaklarda yürü.'], night: ['Eski şehir atmosferinin tadını çıkar.'], dinner: { seafood: {name: 'Alte Küchn', desc: 'Balık.'}, meat: {name: 'Bratwurst Röslein', desc: 'Nürnberg sosisleri.'}, snacks: {name: 'Hausbrauerei', desc: 'Etler.'} } }
             ],
             leipzig: [
-                { 
-                    id: 'leipzig-1', title: 'Leipzig', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', 
-                    morning: ['Sür.'], afternoon: ['Merkez.'], evening: ['Yürüyüş.'], night: ['Dinlen.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Balık.'}, meat: {name: 'Hof', desc: 'Et.'}, snacks: {name: 'Bahnhof', desc: 'Sosis.'} } 
-                }
+                { id: 'leipzig-1', title: 'Leipzig (Almanya)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', morning: ['Leipzig\'e 286 km sür.'], afternoon: ['Bir gece boyunca yürüyüşe son derece uygun tarihi merkezin tadını çıkar.'], evening: ['Tarihi merkezi gez.'], night: ['Dinlen.'], dinner: { seafood: {name: 'Auerbachs Keller', desc: 'Balık seçenekleri.'}, meat: {name: 'Barthels Hof', desc: 'Et tabakları.'}, snacks: {name: 'Bayerischer Bahnhof', desc: 'Sosisler.'} } }
             ]
         },
         'DE': {
             berlin: [
-                { 
-                    id: 'berlin-1', title: 'Berlin', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', 
-                    morning: ['Einrichten.'], afternoon: ['Zentrum.'], evening: ['Tor.'], night: ['Ruhe.'], 
-                    dinner: { seafood: {name: 'Kafer', desc: 'Fisch.'}, meat: {name: 'Grill', desc: 'Steaks.'}, snacks: {name: 'Stand', desc: 'Wurst.'} } 
-                }, 
-                { 
-                    id: 'berlin-2', title: 'Berlin', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', 
-                    morning: ['Mauer.'], afternoon: ['Insel.'], evening: ['Mitte.'], night: ['Trip.'], 
-                    dinner: { seafood: {name: 'Fritz', desc: 'Fisch.'}, meat: {name: 'House', desc: 'Fleisch.'}, snacks: {name: 'Kebab', desc: 'Portionen.'} } 
-                }
+                { id: 'berlin-1', title: 'Berlin (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', morning: ['Einrichten vor der ersten Etappe.'], afternoon: ['Fahren Sie ins Stadtzentrum.'], evening: ['Spazieren Sie um das Brandenburger Tor.'], night: ['Ruhen Sie sich im Hotel aus.'], dinner: { seafood: {name: 'Käfer', desc: 'Frischer Fisch.'}, meat: {name: 'Grill Royal', desc: 'Proteinreiche Steaks.'}, snacks: {name: 'Currywurst Stand', desc: 'Lokale Würstchen ohne Brötchen.'} } },
+                { id: 'berlin-2', title: 'Berlin (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', morning: ['Besuchen Sie die Gedenkstätte Berliner Mauer.'], afternoon: ['Erkunden Sie die Museumsinsel.'], evening: ['Genießen Sie die lebhafte Atmosphäre von Mitte.'], night: ['Bereiten Sie sich auf den Roadtrip vor.'], dinner: { seafood: {name: 'Fischers Fritz', desc: 'Meeresfrüchte.'}, meat: {name: 'Block House', desc: 'Fleischteller.'}, snacks: {name: 'Döner Kebab', desc: 'Fleischportionen.'} } }
             ],
             hamburg: [
-                { 
-                    id: 'hamburg-1', title: 'Hamburg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Hafen.'], evening: ['Elbe.'], night: ['Atmos.'], 
-                    dinner: { seafood: {name: 'Hafen', desc: 'Fang.'}, meat: {name: 'Estancia', desc: 'Steaks.'}, snacks: {name: 'Brucke', desc: 'Bites.'} } 
-                }, 
-                { 
-                    id: 'hamburg-2', title: 'Hamburg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Speicher.'], afternoon: ['Miniatur für Deniz Dora.'], evening: ['Alster.'], night: ['Hotel.'], 
-                    dinner: { seafood: {name: 'Liman', desc: 'Fisch.'}, meat: {name: 'Meatery', desc: 'Rippen.'}, snacks: {name: 'Perle', desc: 'Snacks.'} } 
-                }
+                { id: 'hamburg-1', title: 'Hamburg (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['290 km lange Fahrt nach Hamburg.'], afternoon: ['Erkunden Sie den riesigen Hafen.'], evening: ['Spazieren Sie an der Elbe entlang.'], night: ['Genießen Sie die maritime Atmosphäre.'], dinner: { seafood: {name: 'Fischereihafen', desc: 'Frischer Hafenfang.'}, meat: {name: 'Estancia', desc: 'Steakhaus.'}, snacks: {name: 'Brücke 10', desc: 'Häppchen.'} } },
+                { id: 'hamburg-2', title: 'Hamburg (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Besuchen Sie die Speicherstadt.'], afternoon: ['Besuchen Sie das Miniatur Wunderland, um Deniz Dora für einen Nachmittag zu unterhalten.'], evening: ['Spazieren Sie um die Alsterseen.'], night: ['Ruhen Sie sich im Hotel aus.'], dinner: { seafood: {name: 'Liman', desc: 'Meeresfrüchte.'}, meat: {name: 'Meatery', desc: 'Rippchen und Teilstücke.'}, snacks: {name: 'Strandperle', desc: 'Snacks.'} } }
             ],
             bremen: [
-                { 
-                    id: 'bremen-1', title: 'Bremen', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Zentrum.'], evening: ['Statue.'], night: ['Entspannen.'], 
-                    dinner: { seafood: {name: 'Hahn', desc: 'Fisch.'}, meat: {name: 'Schutt', desc: 'Fleisch.'}, snacks: {name: 'Gebel', desc: 'Wurst.'} } 
-                }
+                { id: 'bremen-1', title: 'Bremen (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', morning: ['Fahren Sie 126 km nach Bremen.'], afternoon: ['Schlendern Sie an diesem kurzen Transittag frei durch das historische Zentrum.'], evening: ['Sehen Sie die Statue der Bremer Stadtmusikanten.'], night: ['Entspannen.'], dinner: { seafood: {name: 'Knurrhahn', desc: 'Fischgerichte.'}, meat: {name: 'Schüttinger', desc: 'Schweinefleischgerichte.'}, snacks: {name: 'Spitzen Gebel', desc: 'Lokale Würstchen.'} } }
             ],
             cologne: [
-                { 
-                    id: 'cologne-1', title: 'Köln', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Hotel.'], evening: ['Dom.'], night: ['Keto Bratwurst.'], 
-                    dinner: { seafood: {name: 'Poisson', desc: 'Fisch.'}, meat: {name: 'Fruh', desc: 'Bratwurst.'}, snacks: {name: 'Sion', desc: 'Wurst.'} } 
-                }
+                { id: 'cologne-1', title: 'Köln (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', morning: ['Schließen Sie die 314 km lange Etappe nach Köln ab.'], afternoon: ['Checken Sie im Hotel ein.'], evening: ['Spazieren Sie in der Nähe des Kölner Doms.'], night: ['Finden Sie ein tolles Keto-freundliches Abendessen mit lokaler Bratwurst und geröstetem Gemüse in der Nähe des Kölner Doms.'], dinner: { seafood: {name: 'Poisson', desc: 'Meeresfrüchte.'}, meat: {name: 'Früh am Dom', desc: 'Bratwurst und geröstetes Gemüse.'}, snacks: {name: 'Brauhaus Sion', desc: 'Würstchen.'} } }
             ],
             frankfurt: [
-                { 
-                    id: 'frankfurt-1', title: 'Frankfurt', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Skyline.'], evening: ['Fluss.'], night: ['Ruhe.'], 
-                    dinner: { seafood: {name: 'Oceans', desc: 'Fisch.'}, meat: {name: 'Grill', desc: 'Fleisch.'}, snacks: {name: 'Wagner', desc: 'Schwein.'} } 
-                }
+                { id: 'frankfurt-1', title: 'Frankfurt am Main (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', morning: ['Fahren Sie 191 km nach Frankfurt am Main.'], afternoon: ['Erkunden Sie die moderne Skyline und das Flussufer während des Aufenthalts für eine Nacht.'], evening: ['Gehen Sie über die beleuchteten Brücken.'], night: ['Ausruhen.'], dinner: { seafood: {name: 'Oceans', desc: 'Meeresfrüchte.'}, meat: {name: 'Eiserner Steg Grill', desc: 'Fleisch.'}, snacks: {name: 'Apfelwein Wagner', desc: 'Schweinebraten.'} } }
             ],
             stuttgart: [
-                { 
-                    id: 'stuttgart-1', title: 'Stuttgart', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Museen.'], evening: ['Autos.'], night: ['Hotel.'], 
-                    dinner: { seafood: {name: 'Kanzlei', desc: 'Fisch.'}, meat: {name: 'Abacco', desc: 'Fleisch.'}, snacks: {name: 'Carls', desc: 'Fleisch.'} } 
-                }
+                { id: 'stuttgart-1', title: 'Stuttgart (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', morning: ['Fahren Sie 205 km nach Stuttgart.'], afternoon: ['Widmen Sie den Tag der Erkundung mechanischer Komponenten in den Mercedes-Benz oder Porsche Museen.'], evening: ['Schätzen Sie die Fahrzeughandwerkskunst hier, um Ihr Interesse an OEM-Autoteilen zu stillen.'], night: ['Entspannen Sie sich im Hotel.'], dinner: { seafood: {name: 'Alte Kanzlei', desc: 'Fisch.'}, meat: {name: 'Abacco', desc: 'Steakhaus.'}, snacks: {name: 'Carls Brauhaus', desc: 'Fleisch.'} } }
             ],
             munich: [
-                { 
-                    id: 'munich-1', title: 'München', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Museum.'], evening: ['Platz.'], night: ['Essen.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Fisch.'}, meat: {name: 'Keller', desc: 'Fleisch.'}, snacks: {name: 'Herz', desc: 'Wurst.'} } 
-                }
+                { id: 'munich-1', title: 'München (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', morning: ['Fahren Sie 232 km nach München für einen Aufenthalt von zwei Nächten.'], afternoon: ['Besuchen Sie das Deutsche Museum für riesige Wissenschaftsausstellungen.'], evening: ['Gehen Sie durch den Marienplatz.'], night: ['Essen Sie in einer traditionellen Umgebung.'], dinner: { seafood: {name: 'Austernkeller', desc: 'Fisch.'}, meat: {name: 'Augustiner-Keller', desc: 'Gebratenes Fleisch.'}, snacks: {name: 'Bratwurstherzl', desc: 'Würstchen.'} } },
+                { id: 'munich-2', title: 'München (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Englischer_Garten_M%C3%BCnchen.jpg/800px-Englischer_Garten_M%C3%BCnchen.jpg', morning: ['Entspannen Sie sich draußen im Englischen Garten.'], afternoon: ['Genießen Sie die natürlichen Landschaften.'], evening: ['Besuchen Sie lokale Sehenswürdigkeiten.'], night: ['Ruhen Sie sich gut aus.'], dinner: { seafood: {name: 'Pescheria', desc: 'Meeresfrüchte.'}, meat: {name: 'Haxnbauer', desc: 'Schweinshaxen.'}, snacks: {name: 'Viktualienmarkt', desc: 'Fleischstücke.'} } }
             ],
             nuremberg: [
-                { 
-                    id: 'nuremberg-1', title: 'Nürnberg', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Burg.'], evening: ['Straßen.'], night: ['Atmos.'], 
-                    dinner: { seafood: {name: 'Kuchn', desc: 'Fisch.'}, meat: {name: 'Roslein', desc: 'Wurst.'}, snacks: {name: 'Haus', desc: 'Fleisch.'} } 
-                }
+                { id: 'nuremberg-1', title: 'Nürnberg (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', morning: ['Fahren Sie 169 km nach Norden nach Nürnberg.'], afternoon: ['Erkunden Sie die mittelalterliche Burgarchitektur.'], evening: ['Spazieren Sie durch die historischen Straßen.'], night: ['Genießen Sie die Altstadtatmosphäre.'], dinner: { seafood: {name: 'Alte Küchn', desc: 'Fisch.'}, meat: {name: 'Bratwurst Röslein', desc: 'Nürnberger Würstchen.'}, snacks: {name: 'Hausbrauerei', desc: 'Fleisch.'} } }
             ],
             leipzig: [
-                { 
-                    id: 'leipzig-1', title: 'Leipzig', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', 
-                    morning: ['Fahrt.'], afternoon: ['Zentrum.'], evening: ['Gehen.'], night: ['Ruhe.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Fisch.'}, meat: {name: 'Hof', desc: 'Fleisch.'}, snacks: {name: 'Bahnhof', desc: 'Wurst.'} } 
-                }
+                { id: 'leipzig-1', title: 'Leipzig (Deutschland)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', morning: ['Fahren Sie 286 km nach Leipzig.'], afternoon: ['Genießen Sie das sehr gut begehbare historische Zentrum für eine Nacht.'], evening: ['Spaziergang.'], night: ['Ausruhen.'], dinner: { seafood: {name: 'Auerbachs Keller', desc: 'Fischoptionen.'}, meat: {name: 'Barthels Hof', desc: 'Fleischteller.'}, snacks: {name: 'Bayerischer Bahnhof', desc: 'Würstchen.'} } }
             ]
         },
         'RU': {
             berlin: [
-                { 
-                    id: 'berlin-1', title: 'Берлин', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', 
-                    morning: ['Обустройтесь.'], afternoon: ['Центр.'], evening: ['Ворота.'], night: ['Отель.'], 
-                    dinner: { seafood: {name: 'Kafer', desc: 'Рыба.'}, meat: {name: 'Grill', desc: 'Мясо.'}, snacks: {name: 'Stand', desc: 'Сосиски.'} } 
-                }, 
-                { 
-                    id: 'berlin-2', title: 'Берлин', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', 
-                    morning: ['Мемориал.'], afternoon: ['Остров.'], evening: ['Митте.'], night: ['Поездка.'], 
-                    dinner: { seafood: {name: 'Fritz', desc: 'Рыба.'}, meat: {name: 'House', desc: 'Мясо.'}, snacks: {name: 'Kebab', desc: 'Порции.'} } 
-                }
+                { id: 'berlin-1', title: 'Берлин (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg', morning: ['Обустройтесь перед началом поездки.'], afternoon: ['Поезжайте в центр города.'], evening: ['Прогуляйтесь вокруг Бранденбургских ворот.'], night: ['Отдохните в отеле.'], dinner: { seafood: {name: 'Käfer', desc: 'Свежая рыба.'}, meat: {name: 'Grill Royal', desc: 'Белковые стейки.'}, snacks: {name: 'Currywurst Stand', desc: 'Местные сосиски без булочки.'} } },
+                { id: 'berlin-2', title: 'Берлин (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Berlin_Museumsinsel_Fernsehturm.jpg/800px-Berlin_Museumsinsel_Fernsehturm.jpg', morning: ['Посетите мемориал Берлинской стены.'], afternoon: ['Исследуйте Музейный остров.'], evening: ['Насладитесь яркой атмосферой района Митте.'], night: ['Подготовьтесь к поездке.'], dinner: { seafood: {name: 'Fischers Fritz', desc: 'Морепродукты.'}, meat: {name: 'Block House', desc: 'Мясные тарелки.'}, snacks: {name: 'Döner Kebab', desc: 'Мясные порции.'} } }
             ],
             hamburg: [
-                { 
-                    id: 'hamburg-1', title: 'Гамбург', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Поездка.'], afternoon: ['Гавань.'], evening: ['Эльба.'], night: ['Атмосфера.'], 
-                    dinner: { seafood: {name: 'Hafen', desc: 'Улов.'}, meat: {name: 'Estancia', desc: 'Стейк.'}, snacks: {name: 'Brucke', desc: 'Закуски.'} } 
-                }, 
-                { 
-                    id: 'hamburg-2', title: 'Гамбург', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', 
-                    morning: ['Шпейхер.'], afternoon: ['Miniatur для Дениза Доры.'], evening: ['Озера.'], night: ['Отель.'], 
-                    dinner: { seafood: {name: 'Liman', desc: 'Рыба.'}, meat: {name: 'Meatery', desc: 'Ребра.'}, snacks: {name: 'Perle', desc: 'Закуски.'} } 
-                }
+                { id: 'hamburg-1', title: 'Гамбург (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Проедьте 290 км до Гамбурга.'], afternoon: ['Исследуйте огромную гавань.'], evening: ['Прогуляйтесь вдоль реки Эльбы.'], night: ['Насладитесь морской атмосферой.'], dinner: { seafood: {name: 'Fischereihafen', desc: 'Свежий улов.'}, meat: {name: 'Estancia', desc: 'Стейк-хаус.'}, snacks: {name: 'Brücke 10', desc: 'Закуски.'} } },
+                { id: 'hamburg-2', title: 'Гамбург (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Speicherstadt_Hamburg_2011.jpg/800px-Speicherstadt_Hamburg_2011.jpg', morning: ['Посетите Шпейхерштадт.'], afternoon: ['Посетите Miniatur Wunderland, чтобы развлечь Дениза Дору.'], evening: ['Прогуляйтесь вокруг озер Альстер.'], night: ['Отдохните в отеле.'], dinner: { seafood: {name: 'Liman', desc: 'Морепродукты.'}, meat: {name: 'Meatery', desc: 'Ребра.'}, snacks: {name: 'Strandperle', desc: 'Закуски.'} } }
             ],
             bremen: [
-                { 
-                    id: 'bremen-1', title: 'Бремен', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', 
-                    morning: ['Поездка.'], afternoon: ['Центр.'], evening: ['Статуя.'], night: ['Отдых.'], 
-                    dinner: { seafood: {name: 'Hahn', desc: 'Рыба.'}, meat: {name: 'Schutt', desc: 'Мясо.'}, snacks: {name: 'Gebel', desc: 'Сосиски.'} } 
-                }
+                { id: 'bremen-1', title: 'Бремен (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bremen_Rathaus_und_Roland.jpg/800px-Bremen_Rathaus_und_Roland.jpg', morning: ['Проедьте 126 км до Бремена.'], afternoon: ['Свободно бродите по историческому центру.'], evening: ['Посмотрите статую Бременских музыкантов.'], night: ['Отдых.'], dinner: { seafood: {name: 'Knurrhahn', desc: 'Рыбные блюда.'}, meat: {name: 'Schüttinger', desc: 'Блюда из свинины.'}, snacks: {name: 'Spitzen Gebel', desc: 'Местные сосиски.'} } }
             ],
             cologne: [
-                { 
-                    id: 'cologne-1', title: 'Кёльн', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', 
-                    morning: ['Этап.'], afternoon: ['Отель.'], evening: ['Собор.'], night: ['Ужин.'], 
-                    dinner: { seafood: {name: 'Poisson', desc: 'Рыба.'}, meat: {name: 'Fruh', desc: 'Кето-колбаски.'}, snacks: {name: 'Sion', desc: 'Сосиски.'} } 
-                }
+                { id: 'cologne-1', title: 'Кёльн (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cologne_Cathedral_and_Hohenzollern_Bridge.jpg/800px-Cologne_Cathedral_and_Hohenzollern_Bridge.jpg', morning: ['Завершите 314-километровый этап до Кёльна.'], afternoon: ['Заселитесь в отель.'], evening: ['Прогуляйтесь возле Кёльнского собора.'], night: ['Найдите отличный кето-ужин из местных колбасок и жареных овощей.'], dinner: { seafood: {name: 'Poisson', desc: 'Морепродукты.'}, meat: {name: 'Früh am Dom', desc: 'Кето-колбаски и жареные овощи.'}, snacks: {name: 'Brauhaus Sion', desc: 'Сосиски.'} } }
             ],
             frankfurt: [
-                { 
-                    id: 'frankfurt-1', title: 'Франкфурт', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', 
-                    morning: ['Поездка.'], afternoon: ['Горизонт.'], evening: ['Набережная.'], night: ['Отдых.'], 
-                    dinner: { seafood: {name: 'Oceans', desc: 'Рыба.'}, meat: {name: 'Grill', desc: 'Мясо.'}, snacks: {name: 'Wagner', desc: 'Свинина.'} } 
-                }
+                { id: 'frankfurt-1', title: 'Франкфурт-на-Майне (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Frankfurt_Skyline_at_night.jpg/800px-Frankfurt_Skyline_at_night.jpg', morning: ['Проедьте 191 км до Франкфурта-на-Майне.'], afternoon: ['Исследуйте современный горизонт и набережную.'], evening: ['Прогуляйтесь по набережной.'], night: ['Отдых.'], dinner: { seafood: {name: 'Oceans', desc: 'Морепродукты.'}, meat: {name: 'Eiserner Steg Grill', desc: 'Мясо.'}, snacks: {name: 'Apfelwein Wagner', desc: 'Жареная свинина.'} } }
             ],
             stuttgart: [
-                { 
-                    id: 'stuttgart-1', title: 'Штутгарт', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', 
-                    morning: ['Поездка.'], afternoon: ['Музеи.'], evening: ['Мастерство.'], night: ['Отель.'], 
-                    dinner: { seafood: {name: 'Kanzlei', desc: 'Рыба.'}, meat: {name: 'Abacco', desc: 'Мясо.'}, snacks: {name: 'Carls', desc: 'Мясо.'} } 
-                }
+                { id: 'stuttgart-1', title: 'Штутгарт (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg/800px-Stuttgart_Schlossplatz_mit_Jubil%C3%A4umss%C3%A4ule.jpg', morning: ['Проедьте 205 км до Штутгарта.'], afternoon: ['Посвятите день музеям Mercedes-Benz или Porsche.'], evening: ['Оцените мастерство создания автомобилей.'], night: ['Отдохните.'], dinner: { seafood: {name: 'Alte Kanzlei', desc: 'Рыба.'}, meat: {name: 'Abacco', desc: 'Стейк-хаус.'}, snacks: {name: 'Carls Brauhaus', desc: 'Мясо.'} } }
             ],
             munich: [
-                { 
-                    id: 'munich-1', title: 'Мюнхен', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', 
-                    morning: ['Поездка.'], afternoon: ['Музей.'], evening: ['Площадь.'], night: ['Ужин.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Рыба.'}, meat: {name: 'Keller', desc: 'Мясо.'}, snacks: {name: 'Herz', desc: 'Сосиски.'} } 
-                }
+                { id: 'munich-1', title: 'Мюнхен (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Marienplatz_Munich.jpg/800px-Marienplatz_Munich.jpg', morning: ['Проедьте 232 км до Мюнхена для двухдневного пребывания.'], afternoon: ['Посетите Немецкий музей.'], evening: ['Пройдитесь по Мариенплац.'], night: ['Поужинайте в традиционной обстановке.'], dinner: { seafood: {name: 'Austernkeller', desc: 'Рыба.'}, meat: {name: 'Augustiner-Keller', desc: 'Жареное мясо.'}, snacks: {name: 'Bratwurstherzl', desc: 'Сосиски.'} } },
+                { id: 'munich-2', title: 'Мюнхен (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Englischer_Garten_M%C3%BCnchen.jpg/800px-Englischer_Garten_M%C3%BCnchen.jpg', morning: ['Отдохните на свежем воздухе в Английском саду.'], afternoon: ['Насладитесь природными пейзажами.'], evening: ['Посетите достопримечательности.'], night: ['Хорошо отдохните.'], dinner: { seafood: {name: 'Pescheria', desc: 'Морепродукты.'}, meat: {name: 'Haxnbauer', desc: 'Свиные рульки.'}, snacks: {name: 'Viktualienmarkt', desc: 'Мясные нарезки.'} } }
             ],
             nuremberg: [
-                { 
-                    id: 'nuremberg-1', title: 'Нюрнберг', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', 
-                    morning: ['Север.'], afternoon: ['Архитектура.'], evening: ['Улицы.'], night: ['Атмосфера.'], 
-                    dinner: { seafood: {name: 'Kuchn', desc: 'Рыба.'}, meat: {name: 'Roslein', desc: 'Колбаски.'}, snacks: {name: 'Haus', desc: 'Мясо.'} } 
-                }
+                { id: 'nuremberg-1', title: 'Нюрнберг (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/N%C3%BCrnberg_Burg_01.jpg/800px-N%C3%BCrnberg_Burg_01.jpg', morning: ['Отправляйтесь на север в Нюрнберг.'], afternoon: ['Исследуйте архитектуру средневекового замка.'], evening: ['Пройдитесь по улицам.'], night: ['Насладитесь атмосферой.'], dinner: { seafood: {name: 'Alte Küchn', desc: 'Рыба.'}, meat: {name: 'Bratwurst Röslein', desc: 'Нюрнбергские колбаски.'}, snacks: {name: 'Hausbrauerei', desc: 'Мясо.'} } }
             ],
             leipzig: [
-                { 
-                    id: 'leipzig-1', title: 'Лейпциг', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', 
-                    morning: ['Поездка.'], afternoon: ['Центр.'], evening: ['Прогулка.'], night: ['Отдых.'], 
-                    dinner: { seafood: {name: 'Keller', desc: 'Рыба.'}, meat: {name: 'Hof', desc: 'Мясо.'}, snacks: {name: 'Bahnhof', desc: 'Сосиски.'} } 
-                }
+                { id: 'leipzig-1', title: 'Лейпциг (Германия)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Leipzig_Markt_mit_Altem_Rathaus.jpg/800px-Leipzig_Markt_mit_Altem_Rathaus.jpg', morning: ['Проедьте 286 км до Лейпцига.'], afternoon: ['Насладитесь историческим центром.'], evening: ['Прогулка.'], night: ['Отдых.'], dinner: { seafood: {name: 'Auerbachs Keller', desc: 'Рыбные блюда.'}, meat: {name: 'Barthels Hof', desc: 'Мясные тарелки.'}, snacks: {name: 'Bayerischer Bahnhof', desc: 'Сосиски.'} } }
             ]
         }
     }
