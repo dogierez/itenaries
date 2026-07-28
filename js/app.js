@@ -123,7 +123,6 @@ function renderAlphabeticalMenu() {
     const container = document.getElementById('region-menu-container');
     if (!container) return;
 
-    // This now correctly pulls from the dynamically updated global currentLang variable
     const langButtons = i18n[currentLang].buttons;
     const localeCode = currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en';
 
@@ -143,7 +142,6 @@ function renderAlphabeticalMenu() {
 
 const appEngine = {
     changeLanguage: function(lang) {
-        // FIX: Update the global variable, not a local one
         currentLang = lang; 
 
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
@@ -162,7 +160,6 @@ const appEngine = {
         document.getElementById('btn-back-base').textContent = i18n[lang].backBase;
         document.getElementById('btn-back-setup').textContent = i18n[lang].backSetup;
 
-        // This will now successfully render translated buttons in alphabetical order
         renderAlphabeticalMenu();
 
         if (!document.getElementById('setup-screen').classList.contains('hidden')) renderMap();
