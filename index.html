@@ -10,13 +10,13 @@
 <body>
 
     <!-- 1. REGION SELECTION SCREEN -->
-    <div id="region-screen" class="screen-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center; padding-top: 2rem;">
+    <div id="region-screen" class="screen-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 2rem 1rem;">
         
         <!-- Main Title -->
         <h1 id="app-title" class="neon-blue" style="margin-bottom: 20px; text-transform: uppercase;">Avrupa Rotaları</h1>
 
         <!-- Language Selector -->
-        <div id="language-selector" class="lang-container" style="display: flex; gap: 15px; margin-bottom: 40px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 30px;">
+        <div id="language-selector" class="lang-container" style="display: flex; gap: 15px; margin-bottom: 30px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 30px;">
             <button class="lang-btn active" id="btn-lang-tr" onclick="appEngine.changeLanguage('TR')">TR</button>
             <button class="lang-btn" id="btn-lang-en" onclick="appEngine.changeLanguage('EN')">EN</button>
             <button class="lang-btn" id="btn-lang-de" onclick="appEngine.changeLanguage('DE')">DE</button>
@@ -26,8 +26,8 @@
         <!-- Region Title -->
         <h2 id="region-title" class="neon-yellow" style="margin-bottom: 25px; text-transform: uppercase;">Rotanızı Seçin</h2>
         
-        <!-- The region buttons will be injected here dynamically by app.js -->
-        <div class="menu-container" id="region-menu-container" style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 400px; align-items: stretch;">
+        <!-- 3-Column Square Grid -->
+        <div id="region-menu-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; max-width: 450px; justify-content: center;">
         </div>
     </div>
 
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <!-- Cache-busting parameter (?v=4) -->
-    <script src="js/app.js?v=4"></script>
+    <!-- Cache-busting parameter (?v=5) -->
+    <script src="js/app.js?v=5"></script>
 </body>
 </html>
