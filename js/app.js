@@ -125,9 +125,9 @@ function renderAlphabeticalMenu() {
 
     const langButtons = i18n[currentLang].buttons;
     
-    // Sort keys alphabetically based on the translated button text for the selected language
+    // Strict Turkish alphabetical sort using 'tr' locale
     const sortedKeys = Object.keys(langButtons).sort((a, b) => {
-        return langButtons[a].localeCompare(langButtons[b], currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en');
+        return langButtons[a].localeCompare(langButtons[b], 'tr', { sensitivity: 'base' });
     });
 
     let html = '';
@@ -248,7 +248,7 @@ function renderItinerary() {
     wrapper.innerHTML = ''; 
     
     const regionData = window.routeModules?.[selectedRegion]?.[currentLang] || window.routeModules?.[selectedRegion]?.['EN'];
-    if(!regionData) { wrapper.innerHTML = `<h2 style="color:white;text-align:center;">[Content Coming Soon...]</h2>`; return; }
+    if(!regionData) { wrapper.innerHTML = `<h2 style="color:white;text-align:center;">[İçerik Yakında Ekenecek...]</h2>`; return; }
     
     let finalItinerary = [];
     let orderArray = Object.keys(regionData);
