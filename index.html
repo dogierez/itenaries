@@ -1,4 +1,39 @@
-<!-- All Itinerary Data Modules -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Itineraries</title>
+    <!-- Cache buster added to CSS just to be safe -->
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+    
+    <header>
+        <h1 id="main-title">European Itineraries</h1>
+        
+        <!-- Language Selector Buttons -->
+        <div id="language-selector" class="lang-switch">
+            <button class="lang-btn" data-lang="TR">TR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+            <button class="lang-btn" data-lang="DE">DE</button>
+            <button class="lang-btn" data-lang="RU">RU</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 3-Column Grid Container for Route Buttons -->
+        <div id="route-buttons" class="grid-container">
+            <!-- Buttons are injected and sorted here by app.js -->
+        </div>
+
+        <!-- Selected Itinerary Content Display -->
+        <div id="itinerary-content">
+            <!-- Content appears here when a button is clicked -->
+        </div>
+    </main>
+
+    <!-- All Itinerary Data Modules -->
     <script src="data/adriatic.js"></script>
     <script src="data/balkans.js"></script>
     <script src="data/central-balkans.js"></script>
