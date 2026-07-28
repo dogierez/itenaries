@@ -126,7 +126,6 @@ function renderAlphabeticalMenu() {
     const langButtons = i18n[currentLang].buttons;
     const localeCode = currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en';
 
-    // Sort alphabetically based on the translated button text in the chosen language
     const sortedKeys = Object.keys(langButtons).sort((a, b) => {
         return langButtons[a].localeCompare(langButtons[b], localeCode, { sensitivity: 'base' });
     });
@@ -156,6 +155,7 @@ const appEngine = {
             appTitle.textContent = i18n[lang].appTitle;
         }
 
+        // Dynamically update main heading title based on active language
         document.getElementById('region-title').textContent = i18n[lang].regionTitle;
         document.getElementById('setup-title').textContent = i18n[lang].setupTitle;
         document.getElementById('btn-back-region').textContent = i18n[lang].backRegion;
