@@ -1,47 +1,55 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avrupa Rotaları</title>
+    <title>Europe Itineraries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="preload-bg"></div>
 
-    <header>
-        <h1 id="app-title" class="neon-blue">Avrupa Rotaları</h1>
-        <div id="language-selector">
-            <button onclick="appEngine.changeLanguage('TR')" class="lang-btn active" id="btn-lang-tr">🇹🇷 TR</button>
-            <button onclick="appEngine.changeLanguage('EN')" class="lang-btn" id="btn-lang-en">🇬🇧 EN</button>
-            <button onclick="appEngine.changeLanguage('DE')" class="lang-btn" id="btn-lang-de">🇩🇪 DE</button>
-            <button onclick="appEngine.changeLanguage('RU')" class="lang-btn" id="btn-lang-ru">🇷🇺 RU</button>
+    <!-- Language Selector -->
+    <div id="language-selector">
+        <button class="lang-btn active" id="btn-lang-tr" onclick="appEngine.changeLanguage('TR')">TR</button>
+        <button class="lang-btn" id="btn-lang-en" onclick="appEngine.changeLanguage('EN')">EN</button>
+        <button class="lang-btn" id="btn-lang-de" onclick="appEngine.changeLanguage('DE')">DE</button>
+        <button class="lang-btn" id="btn-lang-ru" onclick="appEngine.changeLanguage('RU')">RU</button>
+    </div>
+
+    <!-- Main Title -->
+    <h1 id="app-title" class="neon-blue">Avrupa Rotaları</h1>
+
+    <!-- 1. REGION SELECTION SCREEN -->
+    <div id="region-screen" class="screen-container">
+        <h2 id="region-title" class="neon-yellow">Rotanızı Seçin</h2>
+        
+        <!-- The region buttons will be injected here dynamically by app.js so they can be sorted alphabetically -->
+        <div class="menu-container" id="region-menu-container">
         </div>
-    </header>
+    </div>
 
-    <main>
-        <!-- Level 0: Choose the Region -->
-        <section id="region-screen">
-            <h2 id="region-title">Rotanızı Seçin</h2>
-            <div class="menu-options" id="region-menu-container"></div>
-        </section>
+    <!-- 2. SETUP SCREEN (Map Pins) -->
+    <div id="setup-screen" class="screen-container hidden">
+        <h2 id="setup-title" class="neon-yellow">Başlangıç Seçin</h2>
+        <div class="base-options-container" id="base-options-container">
+            <!-- Map and Pins will be injected here -->
+        </div>
+        <button id="btn-back-region" class="back-btn" onclick="appEngine.goBackFromSetup()">Rotalara Dön</button>
+    </div>
 
-        <!-- Level 2: Choose Base/Starting Location Map Screen -->
-        <section id="setup-screen" class="hidden">
-            <button onclick="appEngine.goBackFromSetup()" class="back-btn-top" id="btn-back-setup">Geri Dön</button>
-            <h2 id="setup-title" style="margin-right: 90px; text-align: left;">Başlangıç Seçin</h2>
-            <div class="map-container" id="base-options-container"></div>
-        </section>
+    <!-- 3. ITINERARY SCREEN (Daily Flow) -->
+    <div id="itinerary-container" class="screen-container hidden">
+        <div class="top-controls">
+            <button id="btn-back-setup" class="back-btn" onclick="appEngine.goBack('setup-screen')">Geri Dön</button>
+            <button id="btn-back-base" class="back-btn" onclick="appEngine.goBack('region-screen')">Haritaya Dön</button>
+        </div>
+        <div id="days-wrapper">
+            <!-- Daily cards injected here -->
+        </div>
+    </div>
 
-        <!-- Level 3: The Itinerary Cards -->
-        <section id="itinerary-container" class="hidden">
-            <div style="position: relative; margin-bottom: 40px; height: 30px;">
-                <button onclick="appEngine.goBack('setup-screen')" class="back-btn-top" id="btn-back-base">Haritaya Dön</button>
-            </div>
-            <div id="days-wrapper"></div>
-        </section>
-    </main>
-
-    <script src="js/app.js"></script>
+    <!-- Cache-busting parameter added here (?v=3) -->
+    <script src="js/app.js?v=3"></script>
 </body>
 </html>
