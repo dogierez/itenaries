@@ -39,8 +39,16 @@ const i18n = {
         seafood: 'Seafood', meat: 'Meat', snacks: 'Snacks/Meze',
         morning: 'Morning (09:00 - 12:00)', afternoon: 'Noon/Afternoon (12:00 - 17:00)', 
         evening: 'Evening (17:00 - 21:00)', night: 'Night (21:00 onwards)', dinnerSuggest: 'Dinner Suggestions', day: 'DAY',
-        regions: { 'germany-inside-out': 'Germany Inside Out Itinerary', 'lake-constance': 'Lake Constance Itinerary' },
-        buttons: { 'germany-inside-out': 'Germany Inside Out', 'lake-constance': 'Lake Constance' },
+        regions: { 
+            'greek': 'Greek Islands Itinerary', 'central-europe': 'Central Europe Itinerary', 'west-north-europe': 'West North Europe Itinerary', 
+            'germany-inside-out': 'Germany Inside Out Itinerary', 'lake-constance': 'Lake Constance Itinerary', 'central-balkans': 'Central Balkans Itinerary', 
+            'balkans': 'East Balkans Itinerary', 'adriatic': 'South Adriatic Itinerary' 
+        },
+        buttons: { 
+            'greek': '🇬🇷 Greek Islands', 'central-europe': '🏰 Central Europe', 'west-north-europe': '🇪🇺 West North Europe', 
+            'germany-inside-out': '🇩🇪 Germany Inside Out', 'lake-constance': '🇨🇭 Lake Constance', 'central-balkans': '⛰️ Central Balkans', 
+            'balkans': '🌄 East Balkans', 'adriatic': '🌊 South Adriatic' 
+        },
         cities: { berlin: 'Berlin', hamburg: 'Hamburg', bremen: 'Bremen', cologne: 'Cologne', frankfurt: 'Frankfurt', stuttgart: 'Stuttgart', munich: 'Munich', nuremberg: 'Nuremberg', leipzig: 'Leipzig' }
     },
     'TR': {
@@ -50,8 +58,16 @@ const i18n = {
         seafood: 'Deniz Ürünleri', meat: 'Et', snacks: 'Meze/Atıştırmalık',
         morning: 'Sabah (09:00 - 12:00)', afternoon: 'Öğle/Öğleden Sonra (12:00 - 17:00)', 
         evening: 'Akşam (17:00 - 21:00)', night: 'Gece (21:00 ve sonrası)', dinnerSuggest: 'Akşam Yemeği Önerileri', day: 'GÜN',
-        regions: { 'germany-inside-out': 'Almanya İçten Dışa Rotası', 'lake-constance': 'Konstanz Gölü Rotası' },
-        buttons: { 'germany-inside-out': 'Almanya İçten Dışa', 'lake-constance': 'Konstanz Gölü' },
+        regions: { 
+            'greek': 'Yunan Adaları Rotası', 'central-europe': 'Orta Avrupa Rotası', 'west-north-europe': 'Batı Kuzey Avrupa Rotası', 
+            'germany-inside-out': 'Almanya İçten Dışa Rotası', 'lake-constance': 'Konstanz Gölü Rotası', 'central-balkans': 'Orta Balkanlar Rotası', 
+            'balkans': 'Doğu Balkanlar Rotası', 'adriatic': 'Güney Adriyatik Turu' 
+        },
+        buttons: { 
+            'greek': '🇬🇷 Yunan Adaları', 'central-europe': '🏰 Orta Avrupa', 'west-north-europe': '🇪🇺 Batı Kuzey Avrupa', 
+            'germany-inside-out': '🇩🇪 Almanya İçten Dışa', 'lake-constance': '🇨🇭 Konstanz Gölü', 'central-balkans': '⛰️ Orta Balkanlar', 
+            'balkans': '🌄 Doğu Balkanlar', 'adriatic': '🌊 Güney Adriyatik' 
+        },
         cities: { berlin: 'Berlin', hamburg: 'Hamburg', bremen: 'Bremen', cologne: 'Köln', frankfurt: 'Frankfurt', stuttgart: 'Stuttgart', munich: 'Münih', nuremberg: 'Nürnberg', leipzig: 'Leipzig' }
     },
     'DE': {
@@ -60,8 +76,16 @@ const i18n = {
         center: 'Zentrum', north: 'Norden', south: 'Süden', east: 'Osten', west: 'Westen',
         seafood: 'Meeresfrüchte', meat: 'Fleisch', snacks: 'Snacks',
         morning: 'Morgen', afternoon: 'Nachmittag', evening: 'Abend', night: 'Nacht', dinnerSuggest: 'Abendessen', day: 'TAG',
-        regions: { 'germany-inside-out': 'Deutschland von Innen', 'lake-constance': 'Bodensee Route' },
-        buttons: { 'germany-inside-out': 'Deutschland von Innen', 'lake-constance': 'Bodensee' },
+        regions: { 
+            'greek': 'Griechische Inseln Route', 'central-europe': 'Mitteleuropa Route', 'west-north-europe': 'Westnordeuropa Route', 
+            'germany-inside-out': 'Deutschland von Innen Route', 'lake-constance': 'Bodensee Route', 'central-balkans': 'Zentralbalkan Route', 
+            'balkans': 'Ostbalkan Route', 'adriatic': 'Südadria Route' 
+        },
+        buttons: { 
+            'greek': '🇬🇷 Griechische Inseln', 'central-europe': '🏰 Mitteleuropa', 'west-north-europe': '🇪🇺 Westnordeuropa', 
+            'germany-inside-out': '🇩🇪 Deutschland von Innen', 'lake-constance': '🇨🇭 Bodensee', 'central-balkans': '⛰️ Zentralbalkan', 
+            'balkans': '🌄 Ostbalkan', 'adriatic': '🌊 Südadria' 
+        },
         cities: { berlin: 'Berlin', hamburg: 'Hamburg', bremen: 'Bremen', cologne: 'Köln', frankfurt: 'Frankfurt', stuttgart: 'Stuttgart', munich: 'München', nuremberg: 'Nürnberg', leipzig: 'Leipzig' }
     },
     'RU': {
@@ -70,11 +94,51 @@ const i18n = {
         center: 'Центр', north: 'Север', south: 'Юг', east: 'Восток', west: 'Запад',
         seafood: 'Морепродукты', meat: 'Мясо', snacks: 'Закуски',
         morning: 'Утро', afternoon: 'День', evening: 'Вечер', night: 'Ночь', dinnerSuggest: 'Ужин', day: 'ДЕНЬ',
-        regions: { 'germany-inside-out': 'Германия изнутри', 'lake-constance': 'Боденское озеро' },
-        buttons: { 'germany-inside-out': 'Германия изнутри', 'lake-constance': 'Боденское озеро' },
+        regions: { 
+            'greek': 'Маршрут: Греческие Острова', 'central-europe': 'Маршрут: Центральная Европа', 'west-north-europe': 'Маршрут: Западная и Северная Европа', 
+            'germany-inside-out': 'Маршрут: Германия изнутри', 'lake-constance': 'Маршрут: Боденское озеро', 'central-balkans': 'Маршрут: Центральные Балканы', 
+            'balkans': 'Маршрут: Восточные Балканы', 'adriatic': 'Маршрут: Южная Адриатика' 
+        },
+        buttons: { 
+            'greek': '🇬🇷 Греческие Острова', 'central-europe': '🏰 Центральная Европа', 'west-north-europe': '🇪🇺 Западная и Северная Европа', 
+            'germany-inside-out': '🇩🇪 Германия изнутри', 'lake-constance': '🇨🇭 Боденское озеро', 'central-balkans': '⛰️ Центральные Балканы', 
+            'balkans': '🌄 Восточные Балканы', 'adriatic': '🌊 Южная Адриатика' 
+        },
         cities: { berlin: 'Берлин', hamburg: 'Гамбург', bremen: 'Бремен', cologne: 'Кёльн', frankfurt: 'Франкфурт', stuttgart: 'Штутгарт', munich: 'Мюнхен', nuremberg: 'Нюрнберг', leipzig: 'Лейпциг' }
     }
 };
+
+const regionClasses = {
+    'greek': 'bg-btn-greek',
+    'central-europe': 'bg-btn-ce',
+    'west-north-europe': 'bg-btn-wne',
+    'germany-inside-out': 'bg-btn-germany',
+    'lake-constance': 'bg-btn-constance',
+    'central-balkans': 'bg-btn-central-balkans',
+    'balkans': 'bg-btn-balkans',
+    'adriatic': 'bg-btn-adriatic'
+};
+
+function renderAlphabeticalMenu() {
+    const container = document.getElementById('region-menu-container');
+    if (!container) return;
+
+    const langButtons = i18n[currentLang].buttons;
+    
+    // Sort keys alphabetically based on the translated button text for the selected language
+    const sortedKeys = Object.keys(langButtons).sort((a, b) => {
+        return langButtons[a].localeCompare(langButtons[b], currentLang === 'TR' ? 'tr' : currentLang === 'DE' ? 'de' : currentLang === 'RU' ? 'ru' : 'en');
+    });
+
+    let html = '';
+    sortedKeys.forEach(key => {
+        let text = langButtons[key];
+        let className = regionClasses[key] || 'bg-btn-greek';
+        html += `<button class="${className}" onclick="appEngine.selectRegion('${key}')">${text}</button>`;
+    });
+
+    container.innerHTML = html;
+}
 
 const appEngine = {
     currentLang: 'TR',
@@ -97,8 +161,7 @@ const appEngine = {
         document.getElementById('btn-back-base').textContent = i18n[lang].backBase;
         document.getElementById('btn-back-setup').textContent = i18n[lang].backSetup;
 
-        document.getElementById('btn-route-germany').innerHTML = "🇩🇪 " + i18n[lang].buttons['germany-inside-out'];
-        document.getElementById('btn-route-constance').innerHTML = "🇨🇭 " + i18n[lang].buttons['lake-constance'];
+        renderAlphabeticalMenu();
 
         if (!document.getElementById('setup-screen').classList.contains('hidden')) renderMap();
         if (!document.getElementById('itinerary-container').classList.contains('hidden')) renderItinerary();
@@ -113,21 +176,23 @@ const appEngine = {
 
         selectedIsland = region;
         
-        // Dynamically load the modular script file from the data/ folder
+        let dataFileName = region;
+        if(region === 'germany-inside-out') dataFileName = 'germany';
+
         const scriptId = 'module-' + region;
         if (!document.getElementById(scriptId)) {
             const script = document.createElement('script');
             script.id = scriptId;
-            script.src = `data/${region === 'germany-inside-out' ? 'germany' : region}.js`;
+            script.src = `data/${dataFileName}.js`;
             script.onload = () => {
                 document.getElementById('setup-screen').classList.remove('hidden');
-                document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages[region]}')`;
+                document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages[region] || backgroundImages['home']}')`;
                 renderMap();
             };
             document.body.appendChild(script);
         } else {
             document.getElementById('setup-screen').classList.remove('hidden');
-            document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages[region]}')`;
+            document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('${backgroundImages[region] || backgroundImages['home']}')`;
             renderMap();
         }
     },
@@ -186,7 +251,7 @@ function renderItinerary() {
     if(!regionData) { wrapper.innerHTML = `<h2 style="color:white;text-align:center;">[Content Coming Soon...]</h2>`; return; }
     
     let finalItinerary = [];
-    let orderArray = ['berlin', 'hamburg', 'bremen', 'cologne', 'frankfurt', 'stuttgart', 'munich', 'nuremberg', 'leipzig'];
+    let orderArray = Object.keys(regionData);
     let startIndex = orderArray.indexOf(currentBaseLocation);
     if(startIndex === -1) startIndex = 0;
     
@@ -205,14 +270,16 @@ function renderItinerary() {
     let lastDay = finalItinerary[finalItinerary.length - 1];
     let translatedCity = i18n[currentLang].cities[currentBaseLocation] || currentBaseLocation;
     const depTitle = { 'EN': `Return to ${translatedCity}`, 'TR': `${translatedCity}'a Dönüş`, 'DE': `Rückkehr nach ${translatedCity}`, 'RU': `Возврат в ${translatedCity}` };
-    lastDay.title = depTitle[currentLang];
-    lastDay.afternoon.push(currentLang === 'TR' ? 'Yolculuğu sonlandırmak için başlangıç noktasına dön.' : 'Return to starting point to conclude the road trip.');
+    if(lastDay) {
+        lastDay.title = depTitle[currentLang];
+        lastDay.afternoon.push(currentLang === 'TR' ? 'Yolculuğu sonlandırmak için başlangıç noktasına dön.' : 'Return to starting point to conclude the road trip.');
+    }
 
     currentItineraryData = finalItinerary;
 
     finalItinerary.forEach((day, index) => {
         let dayNum = index + 1;
-        let imageUrl = day.img || backgroundImages['germany-inside-out'];
+        let imageUrl = day.img || backgroundImages['lake-constance'];
         let titleHtml = `<span class="title-city">${day.title}</span>`;
 
         let tasksHTML = '';
@@ -283,4 +350,6 @@ function showDinner(event, displayId, type, dayIndex) {
     displayDiv.classList.remove('hidden');
 }
 
+// Initial render on load
 document.body.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.8)), url('${backgroundImages['home']}')`;
+renderAlphabeticalMenu();
